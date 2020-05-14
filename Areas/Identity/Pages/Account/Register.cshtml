@@ -1,0 +1,93 @@
+﻿@page
+@model RegisterModel
+
+
+<br>
+<br>
+
+ <div class="container">
+                <div class="row">
+					<div class="col-md-12 m-b30">
+						<div class="p-a30 job-bx max-w500 radius-sm bg-white m-auto">
+							<div class="tab-content">
+							<form id="login" class="tab-pane active" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h4>Register as JobSeeker</h4>
+            <hr />
+              @if (ViewData.ModelState.Any(x=>x.Value.Errors.Any()))
+              {
+                  <div class="alert alert-danger alert error">
+                      <a class="close" data-dismiss="alert">&times</a>
+                    @foreach (var modelError in Html.ViewData.ModelState.SelectMany(x=>x.Value.Errors))
+                    {
+                        <p>@modelError.ErrorMessage</p>
+                    }
+                  </div>
+              }
+            <div class="form-group">
+               <label class="font-weight-700">Email</label>
+				<input asp-for="Input.Email" class="form-control">
+
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-700">Password</label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-700">Confirm Password</label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+           <div class="text-left">
+										<button type="submit" class="site-button outline outline-2">CREATE</button>
+									</div>
+        </form>
+
+    </div>
+    <hr>
+    <div class="form-group clearfix text-left">
+										<a class="site-button outline gray"  asp-area="Identity" asp-page="/Account/EmployerRegister">Register as Employer</a>
+
+			</div>
+    <div class="col-md-12 col-md-offset-2">
+        <section>
+            <h4>Use another service to register.</h4>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                            for details on setting up this ASP.NET application to support logging in via external services.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+					</div>
+                </div>
+ </div>
+
+

@@ -1,0 +1,27 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "server=localhost; database=firstp; user=root; password=root; port=3306;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*"
+}
+
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=DESKTOP-5OVO0ID ; Database=JobHub; Trusted_Connection=True; MultipleActiveResultSets=True;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*"
+}

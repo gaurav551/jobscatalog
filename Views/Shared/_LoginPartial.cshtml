@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+
+
+
+
+
+    <strong>
+<ul class="nav navbar-nav">
+        <a class="nav-link text-dark" href="javascript:void(0);" style="padding-right:22px;"> Notification <i class="fa fa-bell"></i>
+        <span class="new-page">New</span>
+         </a>
+        <a  class="nav-link text-dark" style="font-size:17px" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><strong>Hello @User.Identity.Name.Split('@')[0]!</strong></a>
+
+        <ul class="sub-menu">
+									 <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button  type="submit" style="font-size:17px" class="nav-link btn btn-link text-dark"> <strong>Logout </strong></button>
+        </form>
+
+								</ul>
+</ul>
+    </strong>
+
+
+
+}
+else
+{
+
+    <a asp-area="Identity" asp-page="/Account/Register" class="site-button"><i class="fa fa-user"></i> Sign Up</a>
+
+<a href="#" title="READ MORE" rel="bookmark" data-toggle="modal" data-target="#loginmodal" class="site-button"><i class="fa fa-lock"></i> Login </a>
+
+}
+
+

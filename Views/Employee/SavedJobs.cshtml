@@ -1,0 +1,83 @@
+@model List<SavedJobView>
+<div class="page-content bg-white">
+		<!-- contact area -->
+        <div class="content-block">
+			<!-- Browse Jobs -->
+			<div class="section-full bg-white browse-job p-t50 p-b20">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-3 col-lg-4 m-b30">
+							<div class="sticky-top">
+								<div class="candidate-info">
+								<partial name="_EmployeeSidebar.cshtml"/>
+
+								</div>
+							</div>
+						</div>
+                         <div class="col-xl-9 col-lg-8 m-b30">
+							<div class="job-bx save-job table-job-bx clearfix">
+								<div class="job-bx-title clearfix">
+									<h5 class="font-weight-700 pull-left text-uppercase">@Model.Count job saved</h5>
+									<div class="float-right">
+										<span class="select-title">Sort by freshness</span>
+										<select>
+											<option>Last 2 Months</option>
+											<option>Last Months</option>
+											<option>Last Weeks</option>
+											<option>Last 3 Days</option>
+										</select>
+									</div>
+								</div>
+								<table>
+									<thead>
+										<tr>
+											<th></th>
+											<th>Job Title</th>
+											@* <th>Company Name</th> *@
+											<th>Saved Date</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach(var x in Model)
+										{
+
+										<tr>
+											<td class="job-post-company">
+												<a href="javascript:void(0);"><span>
+													<img alt="" src="images/logo/icon2.png"/>
+												</span></a>
+											</td>
+											<td class="job-name"><a href="job-detail.html">@x.JobTitle</a></td>
+
+											<td class="date">@x.SavedOn.ToString("dd MMM")</td>
+											<td class="job-links">
+												<a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModalLong">
+												<i class="fa fa-eye"></i></a>
+												<a href="javascript:void(0);"><i class="ti-trash"></i></a>
+											</td>
+										</tr>
+										}
+
+
+									</tbody>
+								</table>
+								<div class="pagination-bx float-right">
+									<ul class="pagination">
+										<li class="previous"><a href="javascript:void(0);"><i class="ti-arrow-left"></i> Prev</a></li>
+										<li class="active"><a href="javascript:void(0);">1</a></li>
+										<li><a href="javascript:void(0);">2</a></li>
+										<li><a href="javascript:void(0);">3</a></li>
+										<li class="next"><a href="javascript:void(0);">Next <i class="ti-arrow-right"></i></a></li>
+									</ul>
+								</div>
+							</div>
+							<!-- Modal -->
+
+							<!-- Modal End -->
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+</div>
