@@ -1,0 +1,48 @@
+ @{
+ Layout = null;
+ }
+ @model List<Job>
+ <div id="job-searchitems">
+ 	<ul class="post-job-bx browse-job-grid row">
+ 		@foreach(var x in Model)
+ 		{
+ 		<li class="col-lg-6 col-md-12">
+ 			<div class="post-bx">
+ 				<div class="d-flex m-b30">
+ 					<div class="job-post-info">
+ 						<h5><a asp-action="JobDetails" asp-route-id="@x.Id" asp-route-title="@x.Title.Replace(" ","-")"> @x.Title</a></h5>
+ 						<ul>
+ 							<li><i class="fa fa-map-marker"></i> @x.Location</li>
+ 							<li><i class="fa fa-bookmark-o"></i> @x.Category</li>
+ 							<li><i class="fa fa-clock-o"></i> @x.PostedOn</li>
+ 						</ul>
+ 					</div>
+ 				</div>
+ 				<div class="dez-post-tags clear">
+ 					<div class="post-tags">
+ 					@foreach (var item in x.Tags.Split(',').ToArray())
+						{
+						<a href="javascript:void(0);">@item </a>
+
+						}
+
+ 					</div>
+ 				</div>
+ 				<br>
+ 				<div class="d-flex">
+ 					<div class="job-time mr-auto">
+ 						<a href="javascript:void(0);"><span>@x.Type</span></a>
+ 					</div>
+ 					<div class="salary-bx">
+ 						<span>@x.MinSalary - @x.MaxSalary</span>
+ 					</div>
+ 				</div>
+ 				<label class="like-btn">
+ 					<input type="checkbox">
+ 					<span class="checkmark"></span>
+ 				</label>
+ 			</div>
+ 		</li>
+ 		}
+ 	</ul>
+ </div>
