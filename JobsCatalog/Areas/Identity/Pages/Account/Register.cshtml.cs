@@ -99,9 +99,10 @@ namespace JobHub.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
                          var user2 = await _userManager.FindByIdAsync(user.Id);
                          await _userManager.AddToRoleAsync(user2, "Employee");
+                         await _signInManager.SignInAsync(user, isPersistent: false);
+                       
                         return RedirectToAction("CreateProfile","Employee");
                     }
                 }

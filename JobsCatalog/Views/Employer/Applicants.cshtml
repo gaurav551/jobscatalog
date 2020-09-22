@@ -1,3 +1,7 @@
+@{ 
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : ""; 
+}
 <div class="page-content bg-white">
         <!-- contact area -->
         <div class="content-block">
@@ -29,18 +33,22 @@
 												<div class="job-post-info">
 													<h5 class="m-b0"><a href="jobs-profile.html">@c.ApplicantsName</a></h5>
 													<p class="m-b5 font-13">
-														<a href="javascript:void(0);" class="text-primary">UX / UI Designer </a>
-														at Atract Solutions</p>
+														<a href="javascript:void(0);" class="text-primary">@c.ApplicantsTitle </a>
+														</p>
 													<ul>
-														<li><i class="fa fa-map-marker"></i>Sacramento, California</li>
-														<li><i class="fa fa-money"></i> $ 2500</li>
+														<li><i class="fa fa-map-marker"></i>@c.ApplicantsCity</li>
+														<li><i class="fa fa-money"></i> @c.MinSalaryAndMaxSalary</li>
 													</ul>
 												</div>
 											</div>
 											<div class="job-time m-t15 m-b10">
-												<a href="javascript:void(0);"><span>PHP</span></a>
-												<a href="javascript:void(0);"><span>Angular</span></a>
-												<a href="javascript:void(0);"><span>Bootstrap</span></a>
+												@foreach (var item in c.JobTag.Split(','))
+												{
+												<a href="javascript:void(0);"><span>@item</span></a>
+													
+												}
+											
+												
 											</div>
 											<a href="files/pdf-sample.pdf" target="blank" class="job-links">
 												<i class="fa fa-download"></i>
@@ -50,15 +58,21 @@
 									}
 									
 								</ul>
-								<div class="pagination-bx float-right">
-									<ul class="pagination">
-										<li class="previous"><a href="javascript:void(0);"><i class="ti-arrow-left"></i> Prev</a></li>
-										<li class="active"><a href="javascript:void(0);">1</a></li>
-										<li><a href="javascript:void(0);">2</a></li>
-										<li><a href="javascript:void(0);">3</a></li>
-										<li class="next"><a href="javascript:void(0);">Next <i class="ti-arrow-right"></i></a></li>
-									</ul>
-								</div>
+								<div class="pagination-bx float-right m-t30">
+								<ul class="pagination">
+									<li class="previous">
+										<a asp-action="Applicants"
+           asp-route-page="@(Model.PageIndex - 1)"
+           class="btn btn-default @prevDisabled btn"><i class="ti-arrow-left"></i>
+											Prev</a></li>
+									
+									<li class="next">
+										<a asp-action="Applicants"
+           asp-route-page="@(Model.PageIndex + 1)"
+           class="btn btn-default @nextDisabled btn" >Next <i
+												class="ti-arrow-right"></i></a></li>
+								</ul>
+							</div>
 							</div>
 						</div>
 					</div>

@@ -42,6 +42,11 @@ namespace JobHub
             services.AddTransient<HttpContextAccessor>();
            // services.AddRouting(options => options.LowercaseUrls = true);
             services.AddTransient<IUnitOfWork , UnitOfWork> ();
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+{
+    facebookOptions.AppId = "610566302931847";
+    facebookOptions.AppSecret = "281d461746bccdef9bbdb0925c57e558";
+});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

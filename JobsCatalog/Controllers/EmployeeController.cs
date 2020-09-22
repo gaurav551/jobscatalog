@@ -18,42 +18,46 @@ using Repository;
 namespace JobHub.Controllers
 {
     [Authorize(Roles="Employee")]
+    
     public class EmployeeController : BaseController
     {
         private readonly ILogger<EmployeeController> _logger;
-        private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> userManager;
 
         private readonly IUnitOfWork unitOfWork;
 
         public EmployeeController(ILogger<EmployeeController> logger,
-        ApplicationDbContext context,
+        
         UserManager<ApplicationUser> userManager, IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
 
             _logger = logger;
-            _context = context;
+           
             this.userManager = userManager;
         }
+        public string errorMessage = "Error occured while processing your request, Please try again";
 
         public IActionResult Index()
         {
+              
             
-            var user = userManager.GetUserId(HttpContext.User);
-            if (!_context.EmployeeProfiles.Any(x => x.UserId.Equals(user)))
+            string userId = GetLoggedInUserId(userManager);
+            //if user has not created a profile then redirect to create profile page
+            if (!unitOfWork.employeeRepository.IsProfileGood(userId))
             {
                 return View(nameof(CreateProfile));
             }
-
-
-            return View(_context.EmployeeProfiles.FirstOrDefault(x => x.UserId.Equals(user)));
+             return View(unitOfWork.employeeRepository.GetEmployeeProfile(userId));
         }
+       
         public IActionResult CreateProfile()
         {
-            var user = userManager.GetUserId(HttpContext.User);
-            if (_context.EmployeeProfiles.Any(x => x.UserId.Equals(user)))
+            string userId = GetLoggedInUserId(userManager);
+            //check if user already has profile
+            if (unitOfWork.employeeRepository.IsProfileGood(userId))
             {
+                _logger.LogError("User has already created a profile");
                 return NoContent();
             }
 
@@ -63,163 +67,92 @@ namespace JobHub.Controllers
         [HttpPost]
         public IActionResult CreateProfile(EmployeeProfile e)
         {
-            e.UserId = userManager.GetUserId(HttpContext.User);
-            _context.EmployeeProfiles.Add(e);
-            _context.SaveChanges();
+            e.UserId = GetLoggedInUserId(userManager);
+            unitOfWork.employeeRepository.CreateProfile(e);
+            unitOfWork.Commit();
+            
             return RedirectToAction(nameof(Index));
         }
         public IActionResult UpdateProfile(EmployeeProfile e)
         {
-            e.PhotoUrl = e.PhotoUrl;
-            e.UserId = e.UserId;
-            _context.EmployeeProfiles.Update(e);
-            _context.SaveChanges();
+           
+            unitOfWork.employeeRepository.UpdateProfile(e);
+           
             return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> UpdatePhoto(int id, IFormFile file)
         {
-            var employee = _context.EmployeeProfiles.FirstOrDefault(x => x.Id == id);
-            var image = employee.PhotoUrl;
-            if (image != null)
-            {
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/employee", image);
-                if (System.IO.File.Exists(path))
-                {
-                    System.IO.File.Delete(path);
-                }
+            try{
+            await unitOfWork.employeeRepository.UpdatePhoto(id, file);
+            unitOfWork.Commit();
             }
-            var fileName = employee.Fullname + id + file.FileName;
-            await ResizeUserImage(file, fileName);
-            employee.PhotoUrl = fileName;
-            _context.EmployeeProfiles.Update(employee);
-            await _context.SaveChangesAsync();
+            catch{
+                _logger.LogWarning(errorMessage);
+                Notify(errorMessage,"Whoops!🐸", NotificationType.error);
+            }
+
             return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> MyResume()
         {
-            var user = userManager.GetUserId(HttpContext.User);
+            var user = GetLoggedInUserId(userManager);
             var view = await unitOfWork.myResumeRepository.GetMyResumeAsync(user);
             return View(view);
 
         }
+        
         public IActionResult SetResumeObjective(MyResumeView v)
         {
-            var ob = v.Objective;
-            var check = _context.Objectives.AsNoTracking().FirstOrDefault(x => x.Id == ob.Id);
-            if (check == null)
-            {
-                _context.Objectives.Add(ob);
-            }
-            else
-            {
-                _context.Objectives.Update(ob);
-            }
-            _context.SaveChanges();
+            //Add if not set and Update if set
+            unitOfWork.myResumeRepository.SetResumeObjective(v);
             return RedirectToAction("MyResume", "Employee");
 
         }
         public IActionResult SetKeySkill(MyResumeView v)
         {
-            var ob = v.KeySkill;
-            var check = _context.KeySkills.AsNoTracking().FirstOrDefault(x => x.Id == ob.Id);
-            if (check == null)
-            {
-                _context.KeySkills.Add(ob);
-            }
-            else
-            {
-                _context.KeySkills.Update(ob);
-
-            }
-            _context.SaveChanges();
+            unitOfWork.myResumeRepository.SetKeySkill(v);
             return RedirectToAction("MyResume", "Employee");
         }
         public IActionResult SetEducation(MyResumeView v)
         {
-            var ob = v.Education;
-            var check = _context.Educations.AsNoTracking().FirstOrDefault(x => x.Id == ob.Id);
-            if (check == null)
-            {
-                _context.Educations.Add(ob);
-            }
-            else
-            {
-                _context.Educations.Update(ob);
-
-            }
-            _context.SaveChanges();
+           unitOfWork.myResumeRepository.SetEducation(v);
+            unitOfWork.Commit();
             return RedirectToAction("MyResume", "Employee");
         }
 
         public IActionResult SetExperience(MyResumeView v)
         {
-            var ob = v.Experience;
-            var check = _context.Experiences.AsNoTracking().FirstOrDefault(x => x.Id == ob.Id);
-            if (check == null)
-            {
-                _context.Experiences.Add(ob);
-            }
-            else
-            {
-                _context.Experiences.Update(ob);
-            }
-            _context.SaveChanges();
+           
+           unitOfWork.myResumeRepository.SetExperience(v);
+           unitOfWork.Commit();
             return RedirectToAction("MyResume", "Employee");
         }
         public IActionResult SetSpecialization(MyResumeView v)
         {
-            var ob = v.Specialization;
-            var check = _context.Specializations.AsNoTracking().FirstOrDefault(x => x.Id == ob.Id);
-            if (check == null)
-            {
-                _context.Specializations.Add(ob);
-            }
-            else
-            {
-                _context.Specializations.Update(ob);
-            }
-            _context.SaveChanges();
+            unitOfWork.myResumeRepository.SetSpecialization(v);
+            unitOfWork.Commit();
             return RedirectToAction("MyResume", "Employee");
         }
         public IActionResult SetProfileSummary(MyResumeView v)
         {
-            var ob = v.ProfileSummary;
-            var check = _context.ProfileSummarys.AsNoTracking().FirstOrDefault(x => x.Id == ob.Id);
-            if (check == null)
-            {
-                _context.ProfileSummarys.Add(ob);
-            }
-            else
-            {
-                _context.ProfileSummarys.Update(ob);
-            }
-            _context.SaveChanges();
-            return RedirectToAction("MyResume", "Employee");
+           unitOfWork.myResumeRepository.SetProfileSummary(v);
+           unitOfWork.Commit();
+           return RedirectToAction("MyResume", "Employee");
 
         }
         public IActionResult SetJobPreference(MyResumeView v)
         {
-            var ob = v.JobPreference;
-            var check = _context.JobPreferences.AsNoTracking().FirstOrDefault(x => x.Id == ob.Id);
-            if (check == null)
-            {
-                _context.JobPreferences.Add(ob);
-            }
-            else
-            {
-                _context.JobPreferences.Update(ob);
-            }
-            _context.SaveChanges();
+            unitOfWork.myResumeRepository.SetJobPreference(v);
+            unitOfWork.Commit();
             return RedirectToAction("MyResume", "Employee");
 
         }
         public IActionResult SavedJobs()
         {
             
-            var userid = userManager.GetUserId(HttpContext.User);
-
-
-            return View(unitOfWork.jobRepository.GetSavedJob(userid, 1, 10));
+            var userid = GetLoggedInUserId(userManager);
+            int numberOfrows = 10;
+            return View(unitOfWork.jobRepository.GetSavedJob(userid, numberOfrows).ToList());
         }
         public IActionResult AppliedJobs()
         {
@@ -233,15 +166,8 @@ namespace JobHub.Controllers
         }
         public async Task<IActionResult> MyCv()
         {
-            
-            var user = userManager.GetUserId(HttpContext.User);
-            var employee = await _context.EmployeeProfiles.FirstOrDefaultAsync(x => x.UserId.Equals(user));
-            var view = new MyResumeView();
-            view.Id = employee.Id;
-            view.Name = employee.Fullname;
-            view.Address = employee.Address;
-
-            return View(view);
+            string userId = GetLoggedInUserId(userManager);
+            return View(await unitOfWork.myResumeRepository.GetMyResumeViewAsync(userId));
         }
 
 

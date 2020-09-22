@@ -5,6 +5,7 @@
 	@{
 	bool isSigned = sigin.IsSignedIn(User);
 	bool isExpired = Model.IsExpired;
+	bool isApplied = Model.IsApplied;
 	}
 	<div class="page-content bg-white">
 		<!-- inner page banner -->
@@ -53,7 +54,7 @@
 													</span></li>
 												<li><i class="ti-money"></i><strong
 														class="font-weight-700 text-black">Salary</strong>
-													@Model.Job.MinSalary - @Model.Job.MaxSalary</li>
+													@Model.Job.MinSalary.ToString("N0") - @Model.Job.MaxSalary.ToString("N0")</li>
 												<li><i class="ti-shield"></i><strong
 														class="font-weight-700 text-black">Experience</strong>@Model.Job.Experience
 												</li>
@@ -69,7 +70,7 @@
 														<div class="post-tags">
 															@foreach (var item in Model.Tags)
 															{
-															<a href="javascript:void(0);">@item </a>
+															<a asp-route-tag="@item" asp-action="Tags">@item </a>
 
 															}
 
@@ -93,18 +94,31 @@
 									<li><i class="ti-location-pin text-black m-r5"></i> @Model.Job.City </li>
 									<li><i class="fa fa-eye"></i> @Model.ViewCount </li>
 								</ul>
-								<div class="alert alert-warning">
+							
+								  @if(isApplied)
+								  {
+									  	<div class="alert alert-warning">
 								  <a class="close" data-dismiss="alert">&times</a>
-								   <p>@Model.TimeLeftForDeadline</p>
+									  <p style="margin-bottom: 10px;">you have applied to this job on @Model.AppliedDate</p>
+									  	</div>
+								  }
+								  else if(!isExpired)
+								  {
+									  	<div class="alert alert-warning">
+								  <a class="close" data-dismiss="alert">&times</a>
+									  
+								   <p style="margin-bottom: 10px;">@Model.TimeLeftForDeadline</p>
+									  	</div>
+								  }
 
-								</div>
+								
 								
 								<p class="p-t20">@Model.Job.Description</p>
 								@if(isExpired)
 								{
 								<div class="alert alert-danger alert error">
 								  <a class="close" data-dismiss="alert">&times</a>
-								   <p>This job is expired</p>
+								   <p style="margin-bottom: 10px;">This job is expired</p>
 
 								</div>
 								}
@@ -129,15 +143,34 @@
 								}
 								else
 								{
+								
 
 								<a href="#" title="READ MORE" rel="bookmark" data-toggle="modal" data-target="#applyJob"
 									class="site-button"> <i class="fa fa-briefcase"> </i> Apply This Job</a>
 								}
 								}
 								<label class="like-btn">
-									<input type="checkbox" id="myCheckbox" @(Model.IsSaved? "checked" : "" )">
+									@if(Model.IsSaved)
+									{
+										<input type="checkbox" id="isSaved" name="isSaved"  checked>
+									}
+									else
+									{
+									<input type="checkbox" id="isSaved" name="isSaved")>
+									}
 									<span class="checkmark"></span>
 								</label>
+								<div class="dez-divider bg-gray-dark op4"><i class="icon-dot c-square"></i></div>
+								<div class="share-details-btn">
+								<ul>
+									<li><h5 class="m-a0">Share Post</h5></li>
+									<li><a href="javascript:void(0);" class="site-button facebook button-sm"><i class="fa fa-facebook"></i> Facebook</a></li>
+									<li><a href="javascript:void(0);" class="site-button linkedin button-sm"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+									<li><a href="javascript:void(0);" class="site-button instagram button-sm"><i class="fa fa-instagram"></i> Instagram</a></li>
+									<li><a href="javascript:void(0);" class="site-button twitter button-sm"><i class="fa fa-twitter"></i> Twitter</a></li>
+									<li><a href="javascript:void(0);" class="site-button whatsapp button-sm"><i class="fa fa-whatsapp"></i> Whatsapp</a></li>
+								</ul>
+							</div>
 
 							</div>
 						</div>
@@ -171,7 +204,7 @@
 					{
 					<form asp-action="ApplyJob" asp-controller="Job">
 						<h5 class="m-t0">Do you want to apply for this job?</h5>
-						<input type="hidden" name="jobId" value="@Model.Job.Id">
+						<input type="hidden" name="jobId" id="jobId" value="@Model.Job.Id">
 
 						<br>
 						<div class="clearfix">
@@ -183,7 +216,7 @@
 					{
 						<div class="alert alert-danger alert error">
 								  <a class="close" data-dismiss="alert">&times</a>
-								   <p>Click Login  button, 😠</p>
+								   <p style="margin-bottom: 10px;">Click Login  button, 😠</p>
 
 								</div>
 
@@ -195,40 +228,7 @@
 			</div>
 		</div>
 	</div>
+<script src="/assets/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+
 	<!-- Modal Box End -->
-	<script>
-		$(function () {
-			$('#myCheckbox').change(function () {
-				alert("OK");
-
-
-
-				$.ajax({
-					url: '/Job/Save?jobId=' + @Model.Job.Id,
-					true,
-					cache: false,
-					method: 'GET',
-					success: function (response) {
-						Snackbar.show({
-								text: 'Success',
-								backgroundColor: "black",
-								textColor: "white",
-								actionText: "Dismiss"
-							}
-
-						);
-					},
-					error: function () {
-						Snackbar.show({
-								text: 'woops something went wrong',
-								backgroundColor: "black",
-								textColor: "white",
-								actionText: "Dismiss"
-							}
-
-						);
-					}
-				});
-			});
-		});
-	</script>
+<script src="/js/browsejob.js"></script><!-- JQUERY.MIN JS -->

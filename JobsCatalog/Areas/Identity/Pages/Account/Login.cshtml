@@ -48,7 +48,7 @@
 
 
 								<br>
-								<div class="dz-social clearfix">
+								@* <div class="dz-social clearfix">
 										<h5 class="form-title m-t5 pull-left">Sign In With</h5>
 										<ul class="dez-social-icon dez-border pull-right dez-social-icon-lg text-white">
 											<li><a class="fa fa-facebook  fb-btn" href="javascript:;" target="bank"></a></li>
@@ -56,7 +56,7 @@
 											<li><a class="fa fa-linkedin link-btn" href="javascript:;" target="bank"></a></li>
 											<li><a class="fa fa-google-plus  gplus-btn" href="javascript:;" target="bank"></a></li>
 										</ul>
-							    </div>
+							    </div> *@
 								<div class="form-group">
 
 									 <a asp-area="Identity" asp-page="/Account/Register">Register as jobSeeker </a> or
@@ -103,7 +103,7 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins)
                                 {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    <button type="submit"  class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
                                 }
                             </p>
                         </div>

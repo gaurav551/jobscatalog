@@ -2,7 +2,9 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
+using JobHub.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -10,34 +12,8 @@ namespace JobHub.Controllers
 {
     public class BaseController : Controller
     {
-        public async Task ResizeImage(IFormFile file, string FileName)
-        {
-            using (var memoryStream = new MemoryStream())
-            {
-                await file.CopyToAsync(memoryStream);
-                Bitmap original = (Bitmap)Image.FromStream(memoryStream);
-                //For Resize
-                Bitmap processed = new Bitmap(original, new Size(300, 300));
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/companies", FileName);
-                processed.Save(path);
-                memoryStream.Flush();
-            }
-        }
-        public async Task ResizeUserImage(IFormFile file, string FileName)
-        {
-            using (var memoryStream = new MemoryStream())
-            {
-                await file.CopyToAsync(memoryStream);
-                Bitmap original = (Bitmap)Image.FromStream(memoryStream);
-                //For Resize
-                Bitmap processed = new Bitmap(original, new Size(300, 300));
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/employee", FileName);
-                processed.Save(path);
-                memoryStream.Flush();
-            }
-
-        }
-         public void Notify(string message, string title = "Sweet Alert Toastr Demo",
+        
+        public void Notify(string message, string title = "Sweet Alert Toastr Demo",
                                     NotificationType notificationType = NotificationType.success)
         {
             var msg = new
@@ -51,6 +27,9 @@ namespace JobHub.Controllers
             TempData["Message"] = JsonConvert.SerializeObject(msg);
 
         }
+        public string GetLoggedInUserId(UserManager<ApplicationUser> userManager) => userManager.GetUserId(HttpContext.User);
+        public string GetLoggedInUserEmail(UserManager<ApplicationUser> userManager) => userManager.GetUserName(HttpContext.User);
+        
 
         private string GetProvider()
         {

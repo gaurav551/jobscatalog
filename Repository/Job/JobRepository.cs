@@ -5,114 +5,170 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ApplicationData.Models;
 using ApplicationData.Models.ViewModels;
+using Dapper;
 using JobHub.Data;
 using JobHub.Models;
+using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
+using Repository.Generics;
 
 namespace Repository
 {
-    public class JobRepository :  IJobRepository
+    public class JobRepository : GenericRepository<Job>, IJobRepository
     {
+        private readonly IConfiguration configuration;
         private readonly ApplicationDbContext context;
 
-        public JobRepository(ApplicationDbContext context)
+        public JobRepository(ApplicationDbContext context, IConfiguration configuration) : base(context)
         {
             this.context = context;
+            this.configuration = configuration;
         }
         public void Apply(int jobId, string userId)
         {
-            var jobPostedBy = context.Jobs.FirstOrDefault(x=>x.Id==jobId).PostedBy;
+            var jobPostedBy = context.Jobs.FirstOrDefault(x => x.Id == jobId).PostedBy;
             var job = new AppliedJob { JobId = jobId, UserId = userId, JobPostedBy = jobPostedBy };
             context.AppliedJobs.Add(job);
-            
+
         }
 
-        public List<Job> GetBy(Expression<Func<Job, bool>> predicate)
+        public IQueryable<Job> GetBy(Expression<Func<Job, bool>> predicate)
         {
-        
-            return context.Set<Job>().Where(predicate).Take(100).ToList();
-        
+
+            return context.Set<Job>().Where(predicate);
+
 
         }
 
-        
+
 
         public async Task<JobDetailsView> GetJobDetailsAsync(string userId, int jobId)
         {
             JobDetailsView v = new JobDetailsView();
-             var job = context.Jobs.FirstOrDefault(x=>x.Id==jobId);
-             v.Job = job;
+            var job = context.Jobs.FirstOrDefault(x => x.Id == jobId);
+            v.Job = job;
             v.TimeLeftForDeadline = TimeForDeadLine(job.Deadline);
-            var company = context.Companies.FirstOrDefault(x=>x.UserId.Equals(job.PostedBy));
+            var company = context.Companies.FirstOrDefault(x => x.UserId.Equals(job.PostedBy));
             v.Logo = company.Logo;
-            v.IsExpired = DateTime.Now>job.Deadline? true: false;
+            v.IsExpired = DateTime.Now > job.Deadline ? true : false;
             v.Tags = job.Tags.Split(',').ToList();
-            v.CompanyName =  company.CompanyName;
+            v.CompanyName = company.CompanyName;
             v.CompanyFounded = company.FoundedDate;
             v.IsApplied = context.AppliedJobs.Any(x => x.UserId.Equals(userId) && x.JobId == jobId);
+            v.AppliedDate = DateTime.Now;
             v.IsSaved = context.Saves.Any(x => x.UserId.Equals(userId) && x.JobId == jobId);
             v.ViewCount = await AddAndGetCount(jobId);
             return v;
         }
 
-        public List<SavedJobView> GetSavedJob(string userId, int start, int end)
+        public IQueryable<SavedJobView> GetSavedJob(string userId, int count)
 
         {
-             var savedjob = (from s  in context.Saves
-            join j in context.Jobs on s.JobId equals j.Id
-            select new SavedJobView()
-            {
-                  JobId = j.Id,
-                  JobTitle = j.Title,
-                  SavedOn = s.SavedOn,
-                   UserId = s.UserId
+            var savedjob = (from s in context.Saves
+                            join j in context.Jobs on s.JobId equals j.Id
+                            select new SavedJobView()
+                            {
+                                JobId = j.Id,
+                                JobTitle = j.Title,
+                                SavedOn = s.SavedOn,
+                                UserId = s.UserId
 
-            });
-            return savedjob.ToList();
+                            }).Where(x => x.UserId.Equals(userId));
+            return savedjob.Take(count);
         }
 
-        public void SaveJob(int jobId, string userId)
+        public string SaveJob(int jobId, string userId)
         {
-            if(context.Saves.Any(x=>x.JobId==jobId && x.UserId.Equals(userId)))
+            if (context.Saves.Any(x => x.JobId == jobId && x.UserId.Equals(userId)))
             {
-             var saved = context.Saves.FirstOrDefault(x=>x.JobId==jobId && x.UserId.Equals(userId));
-             context.Remove(saved);
+                var saved = context.Saves.FirstOrDefault(x => x.JobId == jobId && x.UserId.Equals(userId));
+                context.Saves.Remove(saved);
+                return "Job Removed from saved jobs";
             }
             else
             {
-            var save = new Save { JobId = jobId, UserId = userId };
-            context.Saves.Add(save);
+                var save = new Save { JobId = jobId, UserId = userId };
+                context.Saves.Add(save);
+                return "job added to saved jobs";
             }
-            context.SaveChanges();
+
         }
         public IQueryable<IndexView> BrowseJob()
         {
-           return from j in context.Jobs join c in context.Companies on j.PostedBy equals c.UserId
-            select new IndexView{
-              Id = j.Id,
-              Title = j.Title,
-              Location = j.Location,
-              Type = j.Type,
-              Tag = j.Tags,
-             
-              Category = j.Category,
-              PostedOn= TimeAgo(j.PostedOn),
-              MinSalary = j.MinSalary,
-              MaxSalary = j.MaxSalary,
-              Image = c.Logo
-              
+            return (from j in context.Jobs
+                    join c in context.Companies on j.PostedBy equals c.UserId
+                    select new IndexView
+                    {
+                        Id = j.Id,
+                        Title = j.Title,
+                        Location = j.Location,
+                        Type = j.Type,
+                        Tag = j.Tags,
+                        TimePosted = j.PostedOn,
 
-            } ;
+                        Category = j.Category,
+                        PostedOn = TimeAgo(j.PostedOn),
+                        MinSalary = j.MinSalary,
+                        MaxSalary = j.MaxSalary,
+                        Image = c.Logo
+
+
+                    }).OrderByDescending(x => x.TimePosted);
         }
+         public List<string> GetPopularTags()
+        {
+
+            List<string> tagsList = new List<string>();
+            var sql = "SELECT tags FROM jobs order by PostedOn desc limit 100;";
+            using (var connection = new MySqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            {
+                connection.Open();
+                 var result = connection.Query<string>(sql);
+                
+                foreach(var x in result)
+                {
+                   
+                   foreach (var tags in x.Split(',').ToArray())
+                    {
+                       tagsList.Add(tags);
+                    }
+                }
+            }
+            return tagsList.Distinct().ToList();
+        }
+
+        public List<string> GetSimilarTags(string tag)
+        {
+              List<string> tagsList = new List<string>();
+            var sql = "SELECT tags FROM jobs WHERE tags like @Tag order by PostedOn desc limit 200";
+           using (var connection = new MySqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            {
+                connection.Open();
+                var result =  connection.Query<string>(sql, new { Tag = $"%{tag}%" });
+                foreach (var item in result)
+                {
+                    foreach (var tags in item.Split(',').ToArray().Take(3))
+                {
+
+                    tagsList.Add(tags);
+                }
+                }
+               
+            }
+            return tagsList.Distinct().ToList();
+        }
+
+
 
         #region 
         //Methods outside of Interface
         public async Task<int> AddAndGetCount(int jobId)
         {
-          
-            if(!context.JobViewCounts.Any(x=>x.JobId==jobId))
+
+            if (!context.JobViewCounts.Any(x => x.JobId == jobId))
             {
                 JobViewCount viewCount = new JobViewCount();
-                
+
                 viewCount.Count = 1;
                 viewCount.JobId = jobId;
                 context.JobViewCounts.Add(viewCount);
@@ -120,14 +176,14 @@ namespace Repository
             }
             else
             {
-            var job = context.JobViewCounts.FirstOrDefault(x=>x.JobId==jobId);
-            job.Count +=1;
-            context.JobViewCounts.Update(job);
-            
+                var job = context.JobViewCounts.FirstOrDefault(x => x.JobId == jobId);
+                job.Count += 1;
+                context.JobViewCounts.Update(job);
+
             }
             await context.SaveChangesAsync();
-            return context.JobViewCounts.FirstOrDefault(x=>x.JobId==jobId).Count;
-           
+            return context.JobViewCounts.FirstOrDefault(x => x.JobId == jobId).Count;
+
 
         }
         public static string TimeAgo(DateTime theDate)
@@ -159,15 +215,12 @@ namespace Repository
         public static string TimeForDeadLine(DateTime dt)
         {
             var time = dt.Subtract(DateTime.Now).TotalDays;
-            var days = Math.Round(time,0);
-            
-            return string.Format("apply before {0} days from now",days);
+            var days = Math.Round(time, 0);
+
+            return string.Format("apply before {0} days from now", days);
         }
 
-
-        
-
-        #endregion
+     #endregion
 
 
     }

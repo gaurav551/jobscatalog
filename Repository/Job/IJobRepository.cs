@@ -5,19 +5,24 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ApplicationData.Models.ViewModels;
 using JobHub.Models;
+using Repository.Generics;
 
 namespace Repository
 {
-    public interface IJobRepository
+    public interface IJobRepository : IGenericRepository<Job>
     {
         void Apply(int jobId, string userId);
-        void SaveJob(int jobId, string userId);
-        List<SavedJobView> GetSavedJob(string userId, int start, int end);
+        string SaveJob(int jobId, string userId);
+        IQueryable<SavedJobView> GetSavedJob(string userId, int count);
         Task<JobDetailsView> GetJobDetailsAsync(string userId, int jobId);
         IQueryable<IndexView> BrowseJob();
+       
+
 
       
-        List<Job> GetBy(Expression<Func<Job, bool>> predicate);
+        IQueryable<Job> GetBy(Expression<Func<Job, bool>> predicate);
+        List<string> GetPopularTags();
+        List<string> GetSimilarTags(string tag);
        
 
     }

@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\JobsCatalog.csproj",
+  "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\jobscatalog.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14389,290 +14389,300 @@
     ],
     "CSharpLanguageVersion": 900
   },
-  "RootNamespace": "JobsCatalog",
+  "RootNamespace": "jobscatalog",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employer\\Applicants.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employer\\Applicants.cshtml",
       "TargetPath": "Views\\Employer\\Applicants.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Job\\_JobFilter.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Job\\_JobFilter.cshtml",
       "TargetPath": "Views\\Job\\_JobFilter.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\EmployerRegister.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\EmployerRegister.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\EmployerRegister.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Job\\JobDetails.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Job\\JobDetails.cshtml",
       "TargetPath": "Views\\Job\\JobDetails.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employee\\SavedJobs.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employee\\SavedJobs.cshtml",
       "TargetPath": "Views\\Employee\\SavedJobs.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employee\\MyCv.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employee\\MyCv.cshtml",
       "TargetPath": "Views\\Employee\\MyCv.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Shared\\_LoginPartial.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Shared\\_UserLogin.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Shared\\_UserLogin.cshtml",
       "TargetPath": "Views\\Shared\\_UserLogin.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employee\\_EmployeeSideBar.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employee\\_EmployeeSideBar.cshtml",
       "TargetPath": "Views\\Employee\\_EmployeeSideBar.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Notification\\Index.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Notification\\Index.cshtml",
       "TargetPath": "Views\\Notification\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employer\\_EmployerSidebar.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employer\\_EmployerSidebar.cshtml",
       "TargetPath": "Views\\Employer\\_EmployerSidebar.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Shared\\_WarningPartial.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Shared\\_WarningPartial.cshtml",
       "TargetPath": "Views\\Shared\\_WarningPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employee\\Index.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employee\\Index.cshtml",
       "TargetPath": "Views\\Employee\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employee\\JobAlerts.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employee\\JobAlerts.cshtml",
       "TargetPath": "Views\\Employee\\JobAlerts.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employer\\NewJob.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employer\\NewJob.cshtml",
       "TargetPath": "Views\\Employer\\NewJob.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Job\\Tags.cshtml",
+      "TargetPath": "Views\\Job\\Tags.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Home\\Index.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Shared\\_CheckRole.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Shared\\_CheckRole.cshtml",
       "TargetPath": "Views\\Shared\\_CheckRole.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Shared\\Error.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Job\\Browse.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Job\\Browse.cshtml",
       "TargetPath": "Views\\Job\\Browse.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employer\\NewCompany.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employer\\NewCompany.cshtml",
       "TargetPath": "Views\\Employer\\NewCompany.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employee\\CreateProfile.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employee\\CreateProfile.cshtml",
       "TargetPath": "Views\\Employee\\CreateProfile.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Home\\Privacy.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Shared\\_AlertPartial.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employer\\EditJob.cshtml",
+      "TargetPath": "Views\\Employer\\EditJob.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Shared\\_AlertPartial.cshtml",
       "TargetPath": "Views\\Shared\\_AlertPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employer\\_JobDetails.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employer\\_JobDetails.cshtml",
       "TargetPath": "Views\\Employer\\_JobDetails.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employee\\MyResume.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employee\\MyResume.cshtml",
       "TargetPath": "Views\\Employee\\MyResume.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employee\\AppliedJobs.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employee\\AppliedJobs.cshtml",
       "TargetPath": "Views\\Employee\\AppliedJobs.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employer\\Index.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employer\\Index.cshtml",
       "TargetPath": "Views\\Employer\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Views\\Employer\\ManageJobs.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employer\\ManageJobs.cshtml",
       "TargetPath": "Views\\Employer\\ManageJobs.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\JobsCatalog\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "FileKind": "mvc"
     }

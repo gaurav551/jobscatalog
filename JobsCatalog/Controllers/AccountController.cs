@@ -87,6 +87,11 @@ namespace JobHub.Controllers
             // If we got this far, something failed, redisplay form
               return Ok();
         }
+        public async Task<IActionResult> Logout()
+        {
+             await _signInManager.SignOutAsync();
+             return RedirectToAction("Index","Home");
+        } 
 
 
 

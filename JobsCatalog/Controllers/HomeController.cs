@@ -29,6 +29,7 @@ namespace JobHub.Controllers
 
         public async Task<IActionResult> IndexAsync()
         {
+            
             await SeedData();
 
             var jobs = _unitOfWork.jobRepository.BrowseJob();

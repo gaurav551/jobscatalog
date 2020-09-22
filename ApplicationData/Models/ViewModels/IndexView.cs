@@ -9,6 +9,7 @@ namespace JobHub.Models
         public string Type { get; set; }
         public string Tag { get; set; }
         public string Description { get; set; }
+        public DateTime TimePosted { get; set; }
         public string Category { get; set; }
         public string PostedOn { get; set;}
         public string Image { get; set; }

@@ -14,6 +14,7 @@ namespace JobHub.Models
         public DateTime CompanyFounded {get;set;}
         public List<string> Tags {get;set;}
         public bool IsApplied { get; set; }
+        public DateTime AppliedDate { get; set; }
         public bool IsSaved { get; set; }
     }
 }

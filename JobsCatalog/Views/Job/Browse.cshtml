@@ -1,4 +1,7 @@
-@model List<IndexView>
+@{ 
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : ""; 
+}
 	<br>
 	<br>
 	<br>
@@ -13,7 +16,7 @@
 				<div class="find-job-bx">
 					<div class="dezPlaceAni">
 						<div class="row">
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-12 col-md-12">
 								<div class="form-group">
 									
 									
@@ -35,24 +38,7 @@
 								</div>
 							</div>
 
-							<div class="col-lg-4 col-md-4">
-								<div class="form-group">
-									<select id="category">
-										<option value="">All</option>
-										<option>Construction</option>
-										<option>Corodinator</option>
-										<option>Employer</option>
-										<option>Financial Career</option>
-										<option>Information Technology</option>
-										<option>Marketing</option>
-										<option>Quality check</option>
-										<option>Real Estate</option>
-										<option>Sales</option>
-										<option>Supporting</option>
-										<option>Teaching</option>
-									</select>
-								</div>
-							</div>
+
 							<div class="col-lg-2 col-md-2">
 								<button id="searchBtn" class="site-button btn-block">Find Job</button>
 							</div>
@@ -71,50 +57,8 @@
 						<div class="col-xl-3 col-lg-4 col-md-5 m-b30">
 							<aside id="accordion1" class="sticky-top sidebar-filter bg-white">
 								<h6 class="title"><i class="fa fa-sliders m-r5"></i> Refined By <a
-										href="javascript:void(0);" class="font-12 float-right">Reset All</a></h6>
-								<div class="panel">
-									<div class="acod-head">
-										<h6 class="acod-title">
-											<a data-toggle="collapse" href="#companies">
-												Companies
-											</a>
-										</h6>
-									</div>
-									<div id="companies" class="acod-body collapse">
-										<div class="acod-content">
-											<div class="custom-control custom-checkbox">
-												<input class="custom-control-input" id="companies1" type="radio"
-													name="checkbox-companies">
-												<label class="custom-control-label" for="companies1">Job Mirror
-													Consultancy <span>(50)</span> </label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input class="custom-control-input" id="companies2" type="radio"
-													name="checkbox-companies">
-												<label class="custom-control-label" for="companies2">Engineering Group
-													<span>(80)</span> </label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input class="custom-control-input" id="companies3" type="radio"
-													name="checkbox-companies">
-												<label class="custom-control-label" for="companies3">Electric Co.
-													<span>(235)</span> </label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input class="custom-control-input" id="companies4" type="radio"
-													name="checkbox-companies">
-												<label class="custom-control-label" for="companies4">Telecom industry
-													<span>(568)</span></label>
-											</div>
-											<div class="custom-control custom-checkbox">
-												<input class="custom-control-input" id="companies5" type="radio"
-													name="checkbox-companies">
-												<label class="custom-control-label" for="companies5">Safety/ Health
-													<span>(798)</span></label>
-											</div>
-										</div>
-									</div>
-								</div>
+										onclick="resetInput()" style="cursor: pointer;" class="font-12 float-right">Reset All</a></h6>
+								
 								<div class="panel">
 									<div class="acod-head">
 										<h6 class="acod-title">
@@ -126,35 +70,36 @@
 									<div id="experience" class="acod-body collapse">
 										<div class="acod-content">
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="minsalary" type="radio"
-													name="radio-years">
-												<label class="custom-control-label" for="one-years">0-1 Years
-													<span>(120)</span> </label>
+												<input class="custom-control-input" id="exp-op1" name="experience" value="1" type="radio"
+													>
+												<label class="custom-control-label" for="exp-op1">0 - 1 years
+													</label>
 											</div>
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="maxsalary" type="radio"
-													name="radio-years">
-												<label class="custom-control-label" for="two-years">1-2 Years
-													<span>(300)</span> </label>
+												<input class="custom-control-input" name="experience" value="2" id="exp-op2" type="radio"
+													>
+												<label class="custom-control-label" for="exp-op2">1 - 2 years
+													 </label>
 											</div>
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="experience" type="radio"
-													name="radio-years">
-												<label class="custom-control-label" for="three-years">2-3 Years
-													<span>(235)</span> </label>
+												<input class="custom-control-input" name="experience" value="3" id="exp-op3" type="radio"
+													>
+												<label class="custom-control-label" for="exp-op3">2 - 3 years
+													 </label>
 											</div>
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="four-years" type="radio"
-													name="radio-years">
-												<label class="custom-control-label" for="four-years">3-4 Years
-													<span>(568)</span></label>
+												<input class="custom-control-input" name="experience" value="4" id="epx-op4" type="radio"
+													>
+												<label class="custom-control-label" for="epx-op4">3 - 4 years
+													</label>
 											</div>
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="five-years" type="radio"
-													name="radio-years">
-												<label class="custom-control-label" for="five-years">4-5 Years
-													<span>(798)</span></label>
+												<input class="custom-control-input" name="experience" value="5" id="exp-op5" type="radio"
+													>
+												<label class="custom-control-label" for="exp-op5">4 - 5 years
+													</label>
 											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -169,34 +114,40 @@
 									<div id="salary" class="acod-body collapse">
 										<div class="acod-content">
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="salary-op1" type="radio"
-													name="radio-currency">
-												<label class="custom-control-label" for="salary-op1">0-1 lacs
-													<span>(120)</span> </label>
+												<input class="custom-control-input" id="salary-op1" name="salary" value="1-10000" type="radio"
+													>
+												<label class="custom-control-label" for="salary-op1">0-10,000 K
+													</label>
 											</div>
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="salary-op2" type="radio"
-													name="radio-currency">
-												<label class="custom-control-label" for="salary-op2">1-2 lacs
-													<span>(300)</span> </label>
+												<input class="custom-control-input" name="salary" value="10000-2000" id="salary-op2" type="radio"
+													>
+												<label class="custom-control-label" for="salary-op2">10,000 - 20,000 K
+													 </label>
 											</div>
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="salary-op3" type="radio"
-													name="radio-currency">
-												<label class="custom-control-label" for="salary-op3">2-3 lacs
-													<span>(235)</span> </label>
+												<input class="custom-control-input" name="salary" value="20000-40000" id="salary-op3" type="radio"
+													>
+												<label class="custom-control-label" for="salary-op3">20,000 - 40,000K
+													 </label>
 											</div>
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="salary-op4" type="radio"
-													name="radio-currency">
-												<label class="custom-control-label" for="salary-op4">3-4 lacs
-													<span>(568)</span></label>
+												<input class="custom-control-input" name="salary" value="40000-60000" id="salary-op4" type="radio"
+													>
+												<label class="custom-control-label" for="salary-op4">40,000 - 60,000K
+													</label>
 											</div>
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="salary-op5" type="radio"
-													name="radio-currency">
-												<label class="custom-control-label" for="salary-op5">4-5 lacs
-													<span>(798)</span></label>
+												<input class="custom-control-input" name="salary" value="60000-100000" id="salary-op5" type="radio"
+													>
+												<label class="custom-control-label" for="salary-op5">60,000 - 100,000K
+													</label>
+											</div>
+											<div class="custom-control custom-radio">
+												<input class="custom-control-input" id="salary-op5" name="salary" value="100000" type="radio"
+													>
+												<label class="custom-control-label" for="salary-op5">100,000K +
+													</label>
 											</div>
 										</div>
 									</div>
@@ -213,35 +164,54 @@
 									<div id="industry" class="acod-body collapse">
 										<div class="acod-content">
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="industry1" type="radio"
-													name="radio-industry">
-												<label class="custom-control-label" for="industry1">Telecom
-													<span>(5)</span> </label>
+												<input class="custom-control-input" id="industry1"  value="Information Technology" type="radio"
+													name="category">
+												<label class="custom-control-label" for="industry1">IT
+													</label>
 											</div>
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="industry2" type="radio"
-													name="radio-industry">
-												<label class="custom-control-label" for="industry2">Consulting Services
-													<span>(10)</span> </label>
+												<input class="custom-control-input" id="industry2" value="Construction" type="radio"
+													name="category">
+												<label class="custom-control-label" for="industry2">Construction
+													</label>
 											</div>
 											<div class="custom-control custom-radio">
-												<input class="custom-control-input" id="industry3" type="radio"
-													name="radio-industry">
+												<input class="custom-control-input" id="industry3" value="Engineering/Projects" type="radio"
+													name="category">
 												<label class="custom-control-label" for="industry3">Engineering/Projects
-													<span>(15)</span> </label>
+												 </label>
+											</div>
+											<div class="custom-control custom-radio">
+												<input class="custom-control-input" id="industry3" value="Teaching" type="radio"
+													name="category">
+												<label class="custom-control-label" for="industry3">Teaching
+												 </label>
+											</div>
+											
+											<div class="custom-control custom-radio">
+												<input class="custom-control-input" id="industry4" type="radio"
+													name="category">
+												<label class="custom-control-label"
+													for="industry4">Manufacturing/Industrial</label>
 											</div>
 											<div class="custom-control custom-radio">
 												<input class="custom-control-input" id="industry4" type="radio"
-													name="radio-industry">
+													name="category" value="Real Estate">
 												<label class="custom-control-label"
-													for="industry4">Manufacturing/Industrial <span>(12)</span></label>
+													for="industry4">Real Estate</label>
+											</div>
+											<div class="custom-control custom-radio">
+												<input class="custom-control-input" id="industry4" value="Sales" type="radio"
+													name="category">
+												<label class="custom-control-label"
+													for="industry4">Sales</label>
 											</div>
 											<div class="custom-control custom-radio">
 												<input class="custom-control-input" id="industry5" type="radio"
-													name="radio-industry">
+													name="category" value="Quality check">
 												<label class="custom-control-label"
-													for="industry5">Architecture/Interior Design
-													<span>(8)</span></label>
+													for="industry5">Quality check
+													</label>
 											</div>
 										</div>
 									</div>
@@ -249,8 +219,9 @@
 							</aside>
 						</div>
 						<div class="col-xl-9 col-lg-8 col-md-7">
+						<div id="job-searchitems">
 							<div class="job-bx-title clearfix">
-								<h5 class="font-weight-700 pull-left text-uppercase">@Model.Count() Jobs Found</h5>
+								<h5 class="font-weight-700 pull-left text-uppercase">Showing @Model.Count</h5>
 								<div class="float-right">
 									<span class="select-title">Sort by freshness</span>
 									<select class="bs-select-hidden">
@@ -259,35 +230,14 @@
 										<option>Last Weeks</option>
 										<option>Last 3 Days</option>
 									</select>
-									<div class="btn-group bootstrap-select"><button type="button"
-											class="btn dropdown-toggle btn-default" data-toggle="dropdown"
-											title="Last 2 Months"><span class="filter-option pull-left">Last 2
-												Months</span>&nbsp;<span class="caret fa fa-caret-down"></span></button>
-										<div class="dropdown-menu open">
-											<ul class="dropdown-menu inner" role="menu">
-												<li data-original-index="0" class="selected"><a tabindex="0" class=""
-														style="" data-tokens="null"><span class="text">Last 2
-															Months</span><span
-															class="glyphicon glyphicon-ok check-mark"></span></a></li>
-												<li data-original-index="1"><a tabindex="0" class="" style=""
-														data-tokens="null"><span class="text">Last Months</span><span
-															class="glyphicon glyphicon-ok check-mark"></span></a></li>
-												<li data-original-index="2"><a tabindex="0" class="" style=""
-														data-tokens="null"><span class="text">Last Weeks</span><span
-															class="glyphicon glyphicon-ok check-mark"></span></a></li>
-												<li data-original-index="3"><a tabindex="0" class="" style=""
-														data-tokens="null"><span class="text">Last 3 Days</span><span
-															class="glyphicon glyphicon-ok check-mark"></span></a></li>
-											</ul>
-										</div>
-									</div>
+									
 									<div class="float-right p-tb5 p-r10">
 										<a href="#" class="p-lr5"><i class="fa fa-th-list"></i></a>
 										<a href="#" class="p-lr5"><i class="fa fa-th"></i></a>
 									</div>
 								</div>
 							</div>
-							<div id="job-searchitems">
+						
 								<ul class="post-job-bx browse-job-grid row">
 
 									@foreach(var x in Model)
@@ -297,7 +247,7 @@
 											<div class="d-flex m-b30">
 												<div class="job-post-info">
 													<h5><a asp-action="JobDetails" asp-route-id="@x.Id"
-															asp-route-title="@x.Title.Replace(" "," -")"> @x.Title</a>
+															asp-route-title="@x.Title.Replace(" "," -")"> @(x.Title.Length>26? x.Title.Substring(0,25)+ "..." : x.Title )</a>
 													</h5>
 													<ul>
 														<li><i class="fa fa-map-marker"></i> @x.Location</li>
@@ -308,7 +258,7 @@
 											</div>
 											 <div class="dez-post-tags clear">
 											<div class="post-tags">
-												@foreach (var item in x.Tag.Split(',').ToArray())
+												@foreach (var item in x.Tag.Split(','))
 												{
 												<a href="javascript:void(0);">@item </a>
 
@@ -322,31 +272,36 @@
 													<a href="javascript:void(0);"><span>@x.Type</span></a>
 												</div>
 												<div class="salary-bx">
-													<span>@x.MinSalary - @x.MaxSalary</span>
+													<span>@x.MinSalary.ToString("N0") - @x.MaxSalary.ToString("N0")</span>
 												</div>
 											</div>
-											<label class="like-btn">
+											@* <label class="like-btn">
 												<input type="checkbox">
 												<span class="checkmark"></span>
-											</label>
+											</label> *@
 										</div>
 									</li>
 									}
 
 								</ul>
-							</div>
+						</div>
 							<div class="pagination-bx float-right m-t30">
 								<ul class="pagination">
-									<li class="previous"><a href="javascript:void(0);"><i class="ti-arrow-left"></i>
+									<li class="previous">
+										<a asp-action="Browse"
+           asp-route-page="@(Model.PageIndex - 1)"
+           class="btn btn-default @prevDisabled btn"><i class="ti-arrow-left"></i>
 											Prev</a></li>
-									<li class="active"><a href="javascript:void(0);">1</a></li>
-									<li><a href="javascript:void(0);">2</a></li>
-									<li><a href="javascript:void(0);">3</a></li>
-									<li class="next"><a href="javascript:void(0);">Next <i
+									
+									<li class="next">
+										<a asp-action="Browse"
+           asp-route-page="@(Model.PageIndex + 1)"
+           class="btn btn-default @nextDisabled btn" >Next <i
 												class="ti-arrow-right"></i></a></li>
 								</ul>
 							</div>
-						</div>
+								</div>
+						
 					</div>
 				</div>
 			</div>
@@ -357,40 +312,4 @@
 	<!-- Content END-->
 	<!-- Modal Box -->
 	<script src="/assets/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
-
-
-	<script>
-		jQuery(document).ready(function () {
-
-
-			$('#searchBtn').on('click', function (e) {
-				var keyword = $('#keyword').val();
-				var category = $('#category').val();
-
-				e.preventDefault();
-				$.ajax({
-					url: '@Url.Action("JobFilter","Job")',
-					type: "GET",
-					data: {
-						keyword: keyword,
-						category: category
-					},
-
-
-					success: function (html) {
-
-						$("#job-searchitems").replaceWith(html);
-
-
-
-
-						return false;
-
-					}
-				});
-
-
-
-			});
-		});
-	</script>
+	<script src="/js/browsejob.js"></script><!-- JQUERY.MIN JS -->

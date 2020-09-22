@@ -1,0 +1,156 @@
+@model List<Job>
+
+	<div class="page-content bg-white">
+		<!-- contact area -->
+		<div class="content-block">
+			<!-- Browse Jobs -->
+			<div class="section-full bg-white p-t50 p-b20">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-3 col-lg-4 m-b30">
+							<div class="sticky-top">
+								<div class="candidate-info company-info">
+
+									<partial name="_EmployerSidebar.cshtml" />
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-9 col-lg-8 m-b30">
+							<div class="job-bx clearfix">
+								<div class="job-bx-title clearfix">
+									<h5 class="font-weight-700 pull-left text-uppercase">Manage jobs</h5>
+									<div class="float-right">
+										<span class="select-title">Sort by freshness</span>
+										<select>
+											<option>All</option>
+											<option>None</option>
+											<option>Read</option>
+											<option>Unread</option>
+											<option>Starred</option>
+											<option>Unstarred</option>
+										</select>
+									</div>
+								</div>
+								<table class="table-job-bx cv-manager company-manage-job">
+									<thead>
+										<tr>
+											<th class="feature">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" id="check12"
+														class="custom-control-input selectAllCheckBox" name="example1">
+													<label class="custom-control-label" for="check12"></label>
+												</div>
+											</th>
+											<th>Job Title</th>
+											<th>Applications</th>
+											<th>Status</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach (var x in Model)
+										{
+
+
+										<tr>
+											<td class="feature">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input" id="check1"
+														name="example1">
+													<label class="custom-control-label" for="check1"></label>
+												</div>
+											</td>
+											<td class="job-name">
+												<a href="javascript:void(0);">@x.Title</a>
+												<ul class="job-post-info">
+													<li><i class="fa fa-map-marker"></i> @x.City, @x.Location</li>
+													<li><i class="fa fa-bookmark-o"></i> @x.Type</li>
+													<li><i class="fa fa-filter"></i> @x.Category</li>
+												</ul>
+											</td>
+											<td class="application text-primary">(@x.Opening) Applications</td>
+											<td class="expired pending">Approved </td>
+											<td class="job-links">
+												<a id="@x.Id" onclick="JobDetails(this.id)">
+													<i class="fa fa-eye"></i></a>
+
+												<a data-id="@x.Id" data-action="DeleteJob"
+													data-body-message="  Are you sure want to delete this?"
+													data-controller="Employer"><i class="ti-trash"></i></a>
+												<a asp-action="EditJob" asp-controller="Employer" asp-route-id="@x.Id">
+													<i class="fa fa-pencil"> </i></a>
+											</td>
+										</tr>
+										}
+
+									</tbody>
+								</table>
+								<div class="pagination-bx m-t30 float-right">
+									<ul class="pagination">
+										<li class="previous"><a href="javascript:void(0);"><i class="ti-arrow-left"></i>
+												Prev</a></li>
+										<li class="active"><a href="javascript:void(0);">1</a></li>
+										<li><a href="javascript:void(0);">2</a></li>
+										<li><a href="javascript:void(0);">3</a></li>
+										<li class="next"><a href="javascript:void(0);">Next <i
+													class="ti-arrow-right"></i></a></li>
+									</ul>
+								</div>
+								<!-- Modal -->
+								<div class="modal fade modal-bx-info" id="exampleModalLong" tabindex="-1" role="dialog"
+									aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<div class="logo-img">
+													<img alt="" src="images/logo/icon2.png">
+												</div>
+												<h5 class="modal-title">Job Details</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Modal End -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Browse Jobs END -->
+		</div>
+	</div>
+	<!-- Content END-->
+	<!-- Modal Box -->
+	<!-- Modal Box End -->
+	<!-- Footer -->
+	<script>
+		$('.selectAllCheckBox').click(function (e) {
+			var table = $(e.target).closest('table');
+			$('td input:checkbox', table).prop('checked', this.checked);
+		});
+	</script>
+	@section scripts{
+	<script>
+		function JobDetails(id) {
+			$.get("@Url.Action("JobDetails","Employer")/" + id,
+				function (data) {
+					$('.modal-body').html(data);
+				});
+
+			$("#exampleModalLong").modal("show");
+		}
+	</script>
+	}
+
+	<script type="text/javascript" src="/js/delete.js"></script>

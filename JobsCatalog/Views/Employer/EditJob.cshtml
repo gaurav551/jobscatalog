@@ -1,0 +1,234 @@
+@model Job
+<link rel="stylesheet" type="text/css" href="/assets/plugins/tagcomplete/tagcomplete.css">
+
+<div class="page-content bg-white">
+	<!-- contact area -->
+	<div class="content-block">
+		<!-- Browse Jobs -->
+		<div class="section-full bg-white p-t50 p-b20">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-3 col-lg-4 m-b30">
+						<div class="sticky-top">
+							<div class="candidate-info company-info">
+
+								<partial name="_EmployerSidebar.cshtml" />
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-9 col-lg-8 m-b30">
+						<div class="job-bx submit-resume">
+							<div class="job-bx-title clearfix">
+								<h5 class="font-weight-700 pull-left text-uppercase">Post A Job</h5>
+								<a href="company-profile.html"
+									class="site-button right-arrow button-sm float-right">Back</a>
+							</div>
+							<form asp-action="EditJob" method="POST">
+							  <div class="row">
+								  <input type="hidden" asp-for="Id">
+								  <input type="hidden" asp-for="PostedBy">
+								  <input type="hidden" asp-for="PostedOn">
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group">
+											<label>Job Title</label>
+											<input type="text" asp-for="Title" class="form-control"
+												placeholder="Enter Job Title">
+											<span class="text-danger" asp-validation-for="Title"></span>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group">
+											<label>Company email</label>
+											<input type="email" asp-for="Email" class="form-control"
+												>
+											<span class="text-danger" asp-validation-for="Email"></span>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12">
+										<div class="form-group">
+											<label>Job Tags</label>
+											<input type="text" asp-for="Tags" class="form-control tags_input"
+												/>
+											<span class="text-danger" asp-validation-for="Tags"></span>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group">
+											<label>Job Type</label>
+											<select asp-for="Type">
+												<option>Full Time</option>
+												<option>Part Time</option>
+												<option>Internship</option>
+												<option>Freelance</option>
+											</select>
+											<span class="text-danger" asp-validation-for="Type"></span>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group">
+											<label>Experience</label>
+											<select asp-for="Experience">
+												<option value="1">1 Years</option>
+												<option value="2">2 Years</option>
+												<option value="3">3 Years</option>
+												<option value="4">4 Years</option>
+												<option value="5">5 Years</option>
+											</select>
+											<span class="text-danger" asp-validation-for="Experience"></span>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group">
+											<label>Job Category</label>
+											<select asp-for="Category">
+                                                <option>Construction</option>
+												<option>Corodinator</option>
+												<option>HR</option>
+												<option>Electrician</option>
+												<option>Financial Career</option>
+												<option>Information Technology</option>
+												<option>Marketing</option>
+												<option>Quality check</option>
+												<option>Real Estate</option>
+												<option>Sales</option>
+												<option>Supporting</option>
+												<option>Teaching</option>
+											</select>
+											<span class="text-danger" asp-validation-for="Category"></span>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group">
+											<label>Openings</label>
+											<input type="number" asp-for="Opening" class="form-control" value="2">
+											<span class="text-danger" asp-validation-for="Opening"></span>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group">
+											<label>City</label>
+											<input type="text" asp-for="City" class="form-control">
+											<span class="text-danger" asp-validation-for="City"></span>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group">
+											<label>Job Location</label>
+											<input type="text" asp-for="Location" class="form-control"
+												placeholder="New Baneshwor">
+											<span class="text-danger" asp-validation-for="Location"></span>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group">
+											<label>Minimum Salary ($):</label>
+											<input type="number" asp-for="MinSalary" class="form-control"
+												placeholder="10000">
+											<span class="text-danger" asp-validation-for="MinSalary"></span>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group">
+											<label>Maximum Salary ($):</label>
+											<input type="number" asp-for="MaxSalary" class="form-control"
+												placeholder="20000">
+											<span class="text-danger" asp-validation-for="MaxSalary"></span>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12">
+										<div class="form-group">
+											<label>Description:</label>
+											<textarea type="text" asp-for="Description" class="form-control"
+												placeholder="Describe about job"> </textarea>
+											<span class="text-danger" asp-validation-for="Description"></span>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12">
+										<div class="form-group">
+											<label>Requirement:</label>
+											<textarea type="text" asp-for="Requirement" class="form-control"
+												placeholder="Requirements"> </textarea>
+											<span class="text-danger" asp-validation-for="Requirement"></span>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12">
+										<div class="form-group">
+											<label>Responsibilities:</label>
+											<textarea type="text" asp-for="Responsibility" class="form-control"
+												placeholder="Requirements"> </textarea>
+											<span class="text-danger" asp-validation-for="Responsibility"></span>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12">
+										<div class="form-group">
+											<label>Benfits:</label>
+											<textarea type="text" asp-for="Benefits" class="form-control"
+												placeholder="Requirements"> </textarea>
+											<span class="text-danger" asp-validation-for="Benefits"></span>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12">
+										<div class="form-group">
+											<label>Deadline:</label>
+											<input id="inputDate" asp-for="Deadline" class="form-control">
+											<span class="text-danger" asp-validation-for="Deadline"></span>
+										</div>
+									</div>
+
+
+								</div>
+								<button type="submit" class="site-button m-b30">POST</button>
+							</form>
+							<button class="btn btn-danger btn-xs"  data-toggle="modal" data-target="#deleteJobModal">DELETE</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Browse Jobs END -->
+	</div>
+</div>
+<!-- Content END-->
+        <div class="modal fade modal-bx-info" id="deleteJobModal" tabindex="-1" role="dialog" aria-labelledby="deleteJobModalTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">ARE YOU SURE WANT TO DELETE THIS JOB?</h5>
+						
+                    </div>
+                    <div class="modal-body">
+                        <p style="color: red;">deleting cannot be undone</p>
+						<a asp-action="DeleteJob" asp-route-id="@Model.Id">Delete</a>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--/Modal -->
+<!-- Modal Box -->
+
+<script src="/assets/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+
+<script src="/assets/plugins/tagcomplete/tagcomplete.js"></script><!-- TAGCOMPLETE -->
+<script>
+	$(function () {
+		var data = [
+
+			'php',
+			'jquery'
+		];
+
+		$(".tags_input").tagComplete({
+
+			keylimit: 1,
+			hide: false,
+			autocomplete: {
+				data: data
+			}
+		});
+	});
+</script>
