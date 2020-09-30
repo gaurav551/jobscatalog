@@ -2,7 +2,7 @@
  Layout = null;
  }
 
- 
+
  <div id="job-searchitems">
 	 <div class="job-bx-title clearfix">
 								<h5 class="font-weight-700 pull-left text-uppercase">Showing @Model.Count </h5>
@@ -52,7 +52,7 @@
  						<a href="javascript:void(0);"><span>@x.Type</span></a>
  					</div>
  					<div class="salary-bx">
- 						<span>@x.MinSalary - @x.MaxSalary</span>
+ 						<span>@x.MinSalary.ToString("N0") - @x.MaxSalary.ToString("N0")</span>
  					</div>
  				</div>
  				<label class="like-btn">

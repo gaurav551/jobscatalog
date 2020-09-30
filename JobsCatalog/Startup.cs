@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using JobHub.Models;
 using Microsoft.AspNetCore.Http;
 using Repository;
+using JobsCatalog.Extensions;
 
 namespace JobHub
 {
@@ -31,23 +32,19 @@ namespace JobHub
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseMySql(
+                options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("JobsCatalog")));
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-               
+
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.PasswordSetting();
-            services.AddTransient<HttpContextAccessor>();
-           // services.AddRouting(options => options.LowercaseUrls = true);
-            services.AddTransient<IUnitOfWork , UnitOfWork> ();
-            services.AddAuthentication().AddFacebook(facebookOptions =>
-{
-    facebookOptions.AppId = "610566302931847";
-    facebookOptions.AppSecret = "281d461746bccdef9bbdb0925c57e558";
-});
+            CustomService.ServiceExtension(services);
         }
+
+            // services.AddRouting(options => options.LowercaseUrls = true);
+           
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -72,6 +69,10 @@ namespace JobHub
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapAreaControllerRoute(
+                name: "AdminArea",
+                areaName: "Admin",
+                pattern: "Admin/{controller=Admin}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}/{title?}");

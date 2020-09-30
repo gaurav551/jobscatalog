@@ -11,6 +11,7 @@ C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\JobsCatalog.pdb
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\JobsCatalog.Views.dll
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\JobsCatalog.Views.pdb
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\Dapper.dll
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Facebook.dll
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -70,6 +71,7 @@ C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
@@ -177,6 +179,7 @@ C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Company\Index.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Employee\AppliedJobs.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Employee\CreateProfile.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Index.cshtml.g.cs
@@ -186,6 +189,7 @@ C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Employee\SavedJobs.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Employee\_EmployeeSideBar.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Employer\Applicants.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Employer\EditJob.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Employer\Index.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Employer\ManageJobs.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Employer\NewCompany.cshtml.g.cs
@@ -196,6 +200,7 @@ C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Job\Browse.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Job\JobDetails.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Job\Tags.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Job\_JobFilter.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Notification\Index.cshtml.g.cs
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -217,7 +222,17 @@ C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\JobsCatalog.dll
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\JobsCatalog.pdb
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\JobsCatalog.genruntimeconfig.cache
-C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Employer\EditJob.cshtml.g.cs
-C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll
-C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Views\Job\Tags.cshtml.g.cs
-C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\bin\Debug\netcoreapp3.1\Dapper.dll
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Admin\Index.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\Error.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_Footer.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_MainNavigation.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_Scripts.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_Styles.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_TopNavigation.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Job\Index.cshtml.g.cs
+C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\JobsCatalog\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Job\Manage.cshtml.g.cs

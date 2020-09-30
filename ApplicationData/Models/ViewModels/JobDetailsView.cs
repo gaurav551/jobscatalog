@@ -8,6 +8,7 @@ namespace JobHub.Models
         public Job Job {get;set;}
         public string TimeLeftForDeadline { get; set; }
         public string CompanyName {get;set;}
+        public int CompanyId { get; set; }
         public string Logo {get;set;}
         public bool IsExpired { get; set; }
         public int ViewCount { get; set; }

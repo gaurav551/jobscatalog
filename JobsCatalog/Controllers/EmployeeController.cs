@@ -164,10 +164,20 @@ namespace JobHub.Controllers
             
             return View();
         }
-        public async Task<IActionResult> MyCv()
+        public IActionResult MyCv()
         {
             string userId = GetLoggedInUserId(userManager);
-            return View(await unitOfWork.myResumeRepository.GetMyResumeViewAsync(userId));
+            var data = unitOfWork.myResumeRepository.GetMyCV(userId);
+            if(data.GetType().GetProperties().All(x=>x.GetValue(data)!=null))
+            {
+            ViewBag.IsNull = false;
+            }
+            else
+            {
+            ViewBag.IsNull = true; 
+            }
+            return View(data);
+            
         }
 
 

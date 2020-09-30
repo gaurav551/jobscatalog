@@ -37,13 +37,23 @@ namespace Repository
 
         }
 
-        public async Task<MyResumeView> GetMyResumeViewAsync(string userId)
+        public MyCvView GetMyCV(string userId)
         {
-            var employee = await context.EmployeeProfiles.FirstOrDefaultAsync(x => x.UserId.Equals(userId));
-            var view = new MyResumeView();
+            var employee =  context.EmployeeProfiles.FirstOrDefault(x => x.UserId.Equals(userId));
+            var view = new MyCvView();
             view.Id = employee.Id;
             view.Name = employee.Fullname;
+            view.Email = employee.Email;
+            view.PhotoUrl = employee.Phone;
             view.Address = employee.Address;
+            view.Specialization = context.Specializations.FirstOrDefault(x=>x.EmployeeProfileId==employee.Id);
+            view.ProfessionalTitle = employee.ProfessionalTitle;
+            view.Education = context.Educations.FirstOrDefault(x=>x.EmployeeProfileId==employee.Id);
+            view.Objective = context.Objectives.FirstOrDefault(x=>x.EmployeeProfileId==employee.Id).Title;
+            view.KeySkill = context.KeySkills.FirstOrDefault(x=>x.EmployeeProfileId==employee.Id).Skills;
+            view.ProfileSummary = context.ProfileSummarys.FirstOrDefault(x=>x.EmployeeProfileId==employee.Id);
+            view.JobPreference = context.JobPreferences.FirstOrDefault(x=>x.EmployeeProfileId==employee.Id);
+             view.Experience = context.Experiences.FirstOrDefault(x=>x.EmployeeProfileId==employee.Id);
             return view;
         }
 
@@ -120,19 +130,23 @@ namespace Repository
             }
         }
 
-        public async Task SetResumeObjective(MyResumeView v)
+        public void SetResumeObjective(MyResumeView v)
         {
            var ob = v.Objective;
+
             var check = context.Objectives.AsNoTracking().FirstOrDefault(x => x.Id == ob.Id);
             if (check == null)
             {
-                context.Objectives.Add(ob);
+               
+                  context.Objectives.Add(ob);
+                  context.SaveChanges();
             }
             else
             {
                 context.Objectives.Update(ob);
+                  context.SaveChanges();
             }
-           await context.SaveChangesAsync();
+          
         }
 
         public void SetSpecialization(MyResumeView v)
@@ -148,5 +162,7 @@ namespace Repository
                 context.Specializations.Update(ob);
             }
         }
+
+        
     }
 }

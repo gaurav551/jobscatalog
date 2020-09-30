@@ -32,6 +32,8 @@
     <!-- STYLESHEETS -->
     <link rel="stylesheet" type="text/css" href="/assets/css/plugins.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+  
+<link rel="stylesheet" text="text/css" href="/css/site.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/templete.css">
     <link class="skin" rel="stylesheet" type="text/css" href="/assets/css/skin/skin-1.css">
 
@@ -39,8 +41,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"/>
 
 </head>
-<body id="bg">
-    
+<body>
     <div class="page-wraper">
         <!-- header -->
         <header class="site-header mo-left header fullwidth">
@@ -100,7 +101,7 @@
                     </div>
                     <div class="modal-body">
                         <form asp-action="Login" asp-controller="Account">
-                            <h3 class="m-t0">Personal Details</h3>
+                           
                             <div class="form-group">
                                 <input name="email" class="form-control" type="email" class="form-control " data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." placeholder="Email" />
                                 <span class="text-danger field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
@@ -121,6 +122,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
+                         <a asp-area="Identity" asp-page="/Account/EmployerRegister">Register </a>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -201,6 +203,7 @@
     </div>
     <!-- JAVASCRIPT FILES ========================================= -->
     <script src="/assets/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+    <script src="/js/site.js"></script><!-- JQUERY.MIN JS -->
     <script src="/assets/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
     <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
     <script src="/assets/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->

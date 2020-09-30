@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": {
-    "DefaultConnection": "server=localhost; database=firstp; user=root; password=root; port=3306;"
+    "DefaultConnection": "server=localhost; database=jobhub; user=root; password=root; port=3306;"
   },
   "Logging": {
     "LogLevel": {

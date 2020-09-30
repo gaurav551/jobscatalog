@@ -9,7 +9,7 @@ namespace Repository
     {
         //
         // Summary:
-        //     stores the profile file into memorystream and resize it into the provided resolution
+        //     stores the profile file into memorystream and resize it into the prvided resolution
         //
         // Parameters:
         //   original:
@@ -18,13 +18,15 @@ namespace Repository
         {
             using (var memoryStream = new MemoryStream())
             {
+                var directory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/"+folder);
+                 Directory.CreateDirectory(directory);
                 await file.CopyToAsync(memoryStream);
                 Bitmap original = (Bitmap)Image.FromStream(memoryStream);
                 //For Resize
                 Bitmap processed = new Bitmap(original, new Size(300, 300));
                 var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/"+folder, FileName);
                 processed.Save(path);
-                memoryStream.Flush();
+                
             }
         } 
         

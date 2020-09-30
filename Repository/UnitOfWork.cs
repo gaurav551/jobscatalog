@@ -14,6 +14,7 @@ namespace Repository
             myResumeRepository = new MyResumeRepository(context);
             jobRepository = new JobRepository(context, configuration);
             employeeRepository = new EmployeeRepository(context);
+            
             employerRepository = new EmployerRepository(context);
 
         }

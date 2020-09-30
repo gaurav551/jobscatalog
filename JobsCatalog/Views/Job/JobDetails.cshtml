@@ -30,8 +30,8 @@
 															<span><img alt="" src="/companies/@Model.Logo" /></span>
 														</div>
 														<div class="job-post-info">
-															<h5><a asp-action="Profile"
-																	asp-controller="Company">@Model.CompanyName</a></h5>
+															<h5><a asp-action="Index"
+																	asp-controller="Company" asp-route-id="@Model.CompanyId">@Model.CompanyName</a></h5>
 															<ul>
 																<li><i class="fa fa-map-marker"></i> Birtmode</li>
 
@@ -216,14 +216,17 @@
 					{
 						<div class="alert alert-danger alert error">
 								  <a class="close" data-dismiss="alert">&times</a>
-								   <p style="margin-bottom: 10px;">Click Login  button, 😠</p>
+								   <p style="margin-bottom: 10px;">What the fuck 😏 Click Login button apply?, 😠</p>
 
 								</div>
+						<a href="#" title="READ MORE" rel="bookmark" data-toggle="modal" data-target="#loginmodal" class="site-button"><i class="fa fa-lock"></i> Login 😪 </a>
+
 
 					}
+
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="button" id="noBtn" class="btn btn-secondary" data-dismiss="modal">No 🙄 </button>
 				</div>
 			</div>
 		</div>

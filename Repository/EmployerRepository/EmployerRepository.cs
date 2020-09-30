@@ -19,7 +19,7 @@ namespace Repository
         public async Task CreateCompanyAsync(JobHub.Models.Company company, IFormFile file)
         {
              var fileName = company.CompanyName + company.Id + file.FileName;
-             string folder = "employer";
+             string folder = "companies";
              await GImageResizer.ResizeImage(file, fileName, folder);
             company.Logo = fileName;
            

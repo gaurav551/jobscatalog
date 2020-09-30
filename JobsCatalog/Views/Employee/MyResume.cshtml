@@ -62,8 +62,10 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 m-b30">
+						
 							<div class="sticky-top bg-white">
 								<div class="candidate-info onepage">
+										
 									<ul>
 										<li><a class="scroll-bar nav-link" href="#resume_Objective_bx">
 											<span>Resume Objective</span></a></li>
@@ -93,6 +95,7 @@
 							</div>
 						</div>
 						<div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+							
 							<div id="resume_Objective_bx" class="job-bx bg-white m-b30">
 								<div class="d-flex">
 									<h5 class="m-b15">Resume Objective</h5>
@@ -122,6 +125,7 @@
 																<input type="hidden" asp-for="@Model.Objective.Id">
 																<input type="hidden" asp-for="@Model.Objective.EmployeeProfileId" value="@Model.Id">
                                                                 <textarea class="form-control" asp-for="@Model.Objective.Title" required placeholder="Type Description"></textarea>
+																<span asp-validation-for="@Model.Objective.Title" class="text-danger"></span>
 															</div>
 														</div>
 													</div>

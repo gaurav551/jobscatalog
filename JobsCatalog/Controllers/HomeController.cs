@@ -9,6 +9,8 @@ using JobHub.Models;
 using JobHub.Data;
 using System.Threading;
 using Repository;
+using JobsCatalog.Seeder;
+using Microsoft.AspNetCore.Identity;
 
 namespace JobHub.Controllers
 {
@@ -17,29 +19,40 @@ namespace JobHub.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> userManager;
 
         public HomeController(ILogger<HomeController> logger,
-        IUnitOfWork unitOfWork, ApplicationDbContext context)
+        IUnitOfWork unitOfWork, ApplicationDbContext context,
+        UserManager<ApplicationUser> userManager)
         {
+            this.userManager = userManager;
             _context = context;
             _logger = logger;
             _unitOfWork = unitOfWork;
 
         }
 
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
+            //   var seeder = new Seeder(_context);
+
+            // await seeder.SeedData();
+             var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            await UserInitializer.InitilizeAsync(userManager);
+           
+
             
-            await SeedData();
+            ViewBag.totaljobs = _unitOfWork.jobRepository.BrowseJob().Count();
+            stopwatch.Stop();
+            System.Console.WriteLine($"Home page loaded in {stopwatch.Elapsed}");
 
-            var jobs = _unitOfWork.jobRepository.BrowseJob();
-            ViewBag.totaljobs = jobs.Count();
-
-            return View(jobs.Take(10).ToList());
+            return View(_unitOfWork.jobRepository.BrowseJob().OrderBy(x=>x.Id).Take(35).ToList());
         }
 
         public IActionResult Privacy()
         {
+           
             return View();
         }
 
@@ -48,40 +61,7 @@ namespace JobHub.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public  Task SeedData()
-        {
-            if (!_context.Jobs.Any())
-            {
-                for (int i = 0; i < 1000; i++)
-                {
-                    Job j = new Job();
 
-                    j.Location = "Kathmandu";
-                    j.MaxSalary = 10000;
-                    j.MinSalary = 9000;
-                    j.Opening = 12;
-                    j.Email = "aaa@@sss.oco";
-                    j.PostedBy = "dab6f06c-72f8-4912-81b5-ebde1588c8be";
-                    j.Title = "GGGGGGGG" + i;
-                    j.PostedOn = DateTime.Now;
-                    j.Tags = "mysql,dotnet-core,ASPNET-MVC";
-                    j.Requirement = "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk";
-                    j.Responsibility = ";llllllllllllllllllllllllllllllllll";
-                    j.Experience = 1212;
-                    j.Category = "Hello";
-                    j.Benefits = "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv";
-                    j.Type = "IT";
-                    j.City = "Bhadrapur";
-                    j.Location = "Jahaa";
-                    j.Description = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-                    j.Deadline = DateTime.Now.AddMonths(10);
-                    _context.Jobs.Add(j);
-                    _context.SaveChanges();
-
-                }
-            }
-            return Task.CompletedTask;
-        }
 
     }
 }

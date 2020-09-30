@@ -77,4 +77,17 @@ function resetInput()
 
 	
 
-		//JobDetails
+		//Click no on login request from jobdetails
+	
+      $('#noBtn').click(function() {
+   Snackbar.show(
+  {text: 'Die asshole 😡',
+  backgroundColor: "black",
+  duration : 10000,
+textColor: "white",
+  actionText: "Fuck you get lost"
+  }
+  
+  );
+});
+     

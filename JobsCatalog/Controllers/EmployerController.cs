@@ -53,7 +53,7 @@ namespace JobHub.Controllers
             {
                 return RedirectToAction(nameof(NewCompany));
             }
-            throw new NotImplementedException();
+           return View(company);
           
 
         }

@@ -1,4 +1,4 @@
-@model MyResumeView
+@model MyCvView
 
 <div class="page-content bg-white">
 		<!-- contact area -->
@@ -16,10 +16,57 @@
 							</div>
 						</div>
                 <div class="col-xl-9 col-lg-8 m-b30">
+                    @if(ViewBag.IsNull)
+                    {
+                        <div class="alert alert-danger alert error">
+                      <a class="close" data-dismiss="alert">&times</a>
+                       <p>Please complete your resume to view your cv</p>
+                  </div>
+                    }
+                    else
+                    {
                 <div class="html-content">
                     <h4>@Model.Name</h4>
-                    <p>@Model.Address</p>
+                    <p><strong>Professionam Title</strong> : @Model.ProfessionalTitle</p>
+                    <p> <strong>Address : @Model.Address <strong></p>
+                     <p> <strong>Email : @Model.Email <strong></p>
+                      <p> <strong>Phone : @Model.Phone <strong></p>
+                    <h2>Skills</h2>
+                      @foreach (var item in Model.KeySkill.Split(','))
+                      {
+                         <li>@item</li> 
+                      }
+                      <br>
+                  
+                    <h2>Objectives</h2>
+                    <p>@Model.Objective</p>
+                     <h2>Spelicalization</h2>
+                    <p>1 @Model.Specialization.Specialization1</p>
+                     <p>2 @Model.Specialization.Specialization2</p>
+                      <p>3 @Model.Specialization.Specialization3</p>
+                     <h2>Education</h2>
+                     <p><strong>University</strong>: @Model.Education.University</p>
+                      <p><strong>College</strong>: @Model.Education.College</p>
+                    <p><strong>Course</strong>: @Model.Education.CourseTitle</p>
+                     <p><strong>CGPA</strong>: @Model.Education.CGPA</p>
+                    <p><strong>Graducated</strong>: @Model.Education.GraduatedDate</p>
+                     <h2>Profile Summary</h2>
+                     <p>@Model.ProfileSummary.Summary</p>
+                      <h2>Preference</h2>
+                      <p><strong>Industry :</strong>@Model.JobPreference.Industry</p>
+                      <p><strong>Functional Area :</strong>@Model.JobPreference.FunctionalArea</p>
+                      <p><strong>Desired Location :</strong>@Model.JobPreference.DesiredLocation</p>
+                      <p><strong>Expected Salary :</strong>@Model.JobPreference.ExpectedSalary</p>
+                      <p><strong>Current Salary :</strong>@Model.JobPreference.CurrentSalary</p>
+                      <h2>Experience</h2>
+                     <p><strong>Work Title :</strong>@Model.Experience.WorkTitle</p>
+                      <p><strong>Company Name :</strong>@Model.Experience.CompanyName</p>
+                       <p><strong>Company Addeess :</strong>@Model.Experience.CompanyAddress</p>
+                        <p><strong>Responsibility :</strong>@Model.Experience.Responsibility</p>
+                         <p><strong>From </strong> : @Model.Experience.FromYear </p>
+                          <p><strong>TO</strong> :@Model.Experience.ToYear</p>
                 </div>
+                    }
 
 
 

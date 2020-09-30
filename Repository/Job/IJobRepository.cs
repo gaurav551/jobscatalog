@@ -16,6 +16,7 @@ namespace Repository
         IQueryable<SavedJobView> GetSavedJob(string userId, int count);
         Task<JobDetailsView> GetJobDetailsAsync(string userId, int jobId);
         IQueryable<IndexView> BrowseJob();
+        IQueryable<IndexView> BrowseJobOnly();
        
 
 

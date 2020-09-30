@@ -14392,6 +14392,16 @@
   "RootNamespace": "jobscatalog",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Shared\\_Scripts.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_Scripts.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Job\\Manage.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Job\\Manage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employer\\Applicants.cshtml",
       "TargetPath": "Views\\Employer\\Applicants.cshtml",
       "FileKind": "mvc"
@@ -14399,6 +14409,11 @@
     {
       "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Shared\\_TopNavigation.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_TopNavigation.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14424,6 +14439,16 @@
     {
       "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\EmployerRegister.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\EmployerRegister.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Job\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Job\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14459,6 +14484,11 @@
     {
       "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Shared\\_Styles.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_Styles.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14509,6 +14539,21 @@
     {
       "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employer\\_EmployerSidebar.cshtml",
       "TargetPath": "Views\\Employer\\_EmployerSidebar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14592,6 +14637,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Shared\\_MainNavigation.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_MainNavigation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
       "FileKind": "mvc"
@@ -14607,8 +14657,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Shared\\_Footer.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_Footer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14642,6 +14707,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Company\\Index.cshtml",
+      "TargetPath": "Views\\Company\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
       "FileKind": "mvc"
@@ -14659,6 +14729,11 @@
     {
       "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Views\\Employee\\MyResume.cshtml",
       "TargetPath": "Views\\Employee\\MyResume.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\jobscatalog\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Admin\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
