@@ -10,3 +10,15 @@ C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\ApplicationData\obj\Debug\netcoreapp
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\ApplicationData\obj\Debug\netcoreapp3.1\ApplicationData.pdb
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\ApplicationData\obj\Debug\netcoreapp3.1\ApplicationData.genruntimeconfig.cache
 C:\Users\Gaurav\Desktop\CGitHub\jobscatalog\ApplicationData\obj\Debug\netcoreapp3.1\ApplicationData.csprojAssemblyReference.cache
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\bin\Debug\netcoreapp3.1\ApplicationData.deps.json
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\bin\Debug\netcoreapp3.1\ApplicationData.runtimeconfig.json
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\bin\Debug\netcoreapp3.1\ApplicationData.runtimeconfig.dev.json
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\bin\Debug\netcoreapp3.1\ApplicationData.dll
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\bin\Debug\netcoreapp3.1\ApplicationData.pdb
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\obj\Debug\netcoreapp3.1\ApplicationData.csprojAssemblyReference.cache
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\obj\Debug\netcoreapp3.1\ApplicationData.AssemblyInfoInputs.cache
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\obj\Debug\netcoreapp3.1\ApplicationData.AssemblyInfo.cs
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\obj\Debug\netcoreapp3.1\ApplicationData.csproj.CoreCompileInputs.cache
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\obj\Debug\netcoreapp3.1\ApplicationData.dll
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\obj\Debug\netcoreapp3.1\ApplicationData.pdb
+C:\Users\Gaurav\Desktop\jobscatalog\ApplicationData\obj\Debug\netcoreapp3.1\ApplicationData.genruntimeconfig.cache

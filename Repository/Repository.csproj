@@ -17,7 +17,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\ApplicationData\ApplicationData.csproj" />
+    <ProjectReference Include="..\Applicationdata\ApplicationData.csproj" />
    
   </ItemGroup>
 

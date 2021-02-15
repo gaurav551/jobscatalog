@@ -3088,7 +3088,10 @@
         },
         "runtime": {
           "bin/placeholder/ApplicationData.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -9565,8 +9568,8 @@
     },
     "ApplicationData/1.0.0": {
       "type": "project",
-      "path": "../ApplicationData/ApplicationData.csproj",
-      "msbuildProject": "../ApplicationData/ApplicationData.csproj"
+      "path": "../Applicationdata/ApplicationData.csproj",
+      "msbuildProject": "../Applicationdata/ApplicationData.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9586,11 +9589,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\Repository\\Repository.csproj",
+      "projectUniqueName": "C:\\Users\\Gaurav\\Desktop\\jobscatalog\\Repository\\Repository.csproj",
       "projectName": "Repository",
-      "projectPath": "C:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\Repository\\Repository.csproj",
+      "projectPath": "C:\\Users\\Gaurav\\Desktop\\jobscatalog\\Repository\\Repository.csproj",
       "packagesPath": "C:\\Users\\Gaurav\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\Repository\\obj\\",
+      "outputPath": "C:\\Users\\Gaurav\\Desktop\\jobscatalog\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gaurav\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9605,9 +9608,10 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\ApplicationData\\ApplicationData.csproj": {
-              "projectPath": "C:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\ApplicationData\\ApplicationData.csproj"
+            "C:\\Users\\Gaurav\\Desktop\\jobscatalog\\Applicationdata\\ApplicationData.csproj": {
+              "projectPath": "C:\\Users\\Gaurav\\Desktop\\jobscatalog\\Applicationdata\\ApplicationData.csproj"
             }
           }
         }
@@ -9620,6 +9624,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Dapper": {
             "target": "Package",
@@ -9657,11 +9662,14 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

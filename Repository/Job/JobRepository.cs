@@ -4,13 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ApplicationData.Models;
-using ApplicationData.Models.ViewModels;
 using Dapper;
 using JobHub.Data;
 using JobHub.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using MySql.Data.MySqlClient;
 using Repository.Generics;
 
 namespace Repository
@@ -19,7 +17,6 @@ namespace Repository
     {
         private readonly IConfiguration configuration;
         private readonly ApplicationDbContext context;
-
         public JobRepository(ApplicationDbContext context, IConfiguration configuration) : base(context)
         {
             this.context = context;
@@ -32,17 +29,10 @@ namespace Repository
             context.AppliedJobs.Add(job);
 
         }
-
         public IQueryable<Job> GetBy(Expression<Func<Job, bool>> predicate)
         {
-
             return context.Set<Job>().Where(predicate);
-
-
         }
-
-
-
         public async Task<JobDetailsView> GetJobDetailsAsync(string userId, int jobId)
         {
             JobDetailsView v = new JobDetailsView();
@@ -76,7 +66,7 @@ namespace Repository
                                 UserId = s.UserId
 
                             }).Where(x => x.UserId.Equals(userId));
-            return savedjob.Take(count);
+                            return savedjob.Take(count);
         }
 
         public string SaveJob(int jobId, string userId)
@@ -97,6 +87,7 @@ namespace Repository
         }
         public IQueryable<IndexView> BrowseJob()
         {
+
             return (from j in context.Jobs
                     join c in context.Companies on j.PostedBy equals c.UserId
                     select new IndexView
@@ -107,42 +98,38 @@ namespace Repository
                         Type = j.Type,
                         Tag = j.Tags,
                         TimePosted = j.PostedOn,
-
+                        CompanyName = c.CompanyName,
                         Category = j.Category,
                         PostedOn = TimeAgo(j.PostedOn),
                         MinSalary = j.MinSalary,
                         MaxSalary = j.MaxSalary,
                         Image = c.Logo
-
-
                     });
         }
         public IQueryable<IndexView> BrowseJobOnly()
         {
-            return (from j in context.Jobs
-                    select new IndexView
-                    {
-                        Id = j.Id,
-                        Title = j.Title,
-                        Location = j.Location,
-                        Type = j.Type,
-                        Tag = j.Tags,
-                        TimePosted = j.PostedOn,
+            return (context.Jobs.Select(j => new IndexView
+            {
+                Id = j.Id,
+                Title = j.Title,
+                Location = j.Location,
+                Type = j.Type,
+                Tag = j.Tags,
+                TimePosted = j.PostedOn,
 
-                        Category = j.Category,
-                        PostedOn = TimeAgo(j.PostedOn),
-                        MinSalary = j.MinSalary,
-                        MaxSalary = j.MaxSalary,
-
+                Category = j.Category,
+                PostedOn = TimeAgo(j.PostedOn),
+                MinSalary = j.MinSalary,
+                MaxSalary = j.MaxSalary,
 
 
-                    });
+
+            }));
 
 
         }
         public List<string> GetPopularTags()
         {
-
             List<string> tagsList = new List<string>();
             var sql = "SELECT top 100 tags FROM jobs order by PostedOn desc";
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
@@ -150,7 +137,6 @@ namespace Repository
                 connection.Open();
                 var result = connection.Query<string>(sql);
                 // var result = context.Jobs.OrderByDescending(x=>x.PostedOn).Select(x=>x.Tags).Take(100).ToArray();
-
                 foreach (var x in result)
                 {
 
@@ -159,8 +145,6 @@ namespace Repository
                         tagsList.Add(tags);
                     }
                 }
-
-
             }
             return tagsList.Distinct().ToList();
         }
@@ -168,7 +152,7 @@ namespace Repository
         public List<string> GetSimilarTags(string tag)
         {
             List<string> tagsList = new List<string>();
-            var sql = "SELECT top 100 tags FROM jobs WHERE tags like @Tag order by PostedOn desc ";
+            var sql = "SELECT top 25000 tags FROM jobs WHERE tags like @Tag order by PostedOn desc ";
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
@@ -176,25 +160,19 @@ namespace Repository
                 // var result = context.Jobs.OrderByDescending(x=>x.PostedOn).Where(x=>x.Tags.Contains(tag)).Select(x=>x.Tags).Take(200).ToArray();
                 foreach (var item in result)
                 {
-                    foreach (var tags in item.Split(',').ToArray().Take(4))
+                    foreach (var tags in item.Split(',').Take(4))
                     {
 
                         tagsList.Add(tags);
                     }
-
-
                 }
             }
             return tagsList.Distinct().ToList();
         }
-
-
-
         #region 
         //Methods outside of Interface
         public async Task<int> AddAndGetCount(int jobId)
         {
-
             if (!context.JobViewCounts.Any(x => x.JobId == jobId))
             {
                 JobViewCount viewCount = new JobViewCount();
@@ -202,19 +180,15 @@ namespace Repository
                 viewCount.Count = 1;
                 viewCount.JobId = jobId;
                 context.JobViewCounts.Add(viewCount);
-
             }
             else
             {
                 var job = context.JobViewCounts.FirstOrDefault(x => x.JobId == jobId);
                 job.Count += 1;
                 context.JobViewCounts.Update(job);
-
             }
             await context.SaveChangesAsync();
             return context.JobViewCounts.FirstOrDefault(x => x.JobId == jobId).Count;
-
-
         }
         public static string TimeAgo(DateTime theDate)
         {
@@ -223,7 +197,6 @@ namespace Repository
             const int HOUR = 60 * MINUTE;
             const int DAY = 24 * HOUR;
             const int MONTH = 30 * DAY;
-
             var ts = new TimeSpan(DateTime.UtcNow.Ticks - theDate.Ticks);
             double delta = Math.Abs(ts.TotalSeconds);
 
@@ -258,14 +231,12 @@ namespace Repository
                 int years = Convert.ToInt32(Math.Floor((double)ts.Days / 365));
                 return years <= 1 ? "one year ago" : years + " years ago";
             }
-
         }
         public static string TimeForDeadLine(DateTime dt)
         {
             var time = dt.Subtract(DateTime.Now).TotalDays;
             var days = Math.Round(time, 0);
-
-            return string.Format("apply before {0} days from now", days);
+            return string.Format("Apply before {0} days from now", days);
         }
 
         #endregion

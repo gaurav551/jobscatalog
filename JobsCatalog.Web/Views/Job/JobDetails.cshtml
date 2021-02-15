@@ -1,0 +1,237 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> sigin
+	
+	@model JobDetailsView
+	@{
+	bool isSigned = sigin.IsSignedIn(User);
+	bool isExpired = Model.IsExpired;
+	bool isApplied = Model.IsApplied;
+	}
+	<div class="page-content bg-white">
+		<!-- inner page banner -->
+
+		<!-- inner page banner END -->
+		<!-- contact area -->
+		<div class="content-block">
+			<!-- Job Detail -->
+			<div class="section-full content-inner-1">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="sticky-top">
+								<div class="row">
+									<div class="col-lg-12 col-md-6">
+										<ul class="post-job-bx browse-job">
+											<li>
+												<div class="post-bx">
+													<div class="d-flex m-b30">
+														<div class="job-post-company">
+
+															<span><img alt="" src="/companies/@Model.Logo" /></span>
+														</div>
+														<div class="job-post-info">
+															<h5><a asp-action="Index"
+																	asp-controller="Company" asp-route-id="@Model.CompanyId">@Model.CompanyName</a></h5>
+															<ul>
+																<li><i class="fa fa-map-marker"></i> Birtmode</li>
+
+																<li><i class="fa fa-clock-o"></i> @Model.CompanyFounded
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<div class="col-lg-12 col-md-6">
+										<div class="widget bg-white p-lr20 p-t20  widget_getintuch radius-sm">
+											<h5 class="text-black font-weight-700 p-t10 m-b15">Job Details</h5>
+											<ul>
+												<li><i class="ti-location-pin"></i><strong
+														class="font-weight-700 text-black">Address</strong><span
+														class="text-black-light"> @Model.Job.Location , @Model.Job.City
+													</span></li>
+												<li><i class="ti-money"></i><strong
+														class="font-weight-700 text-black">Salary</strong>
+													@Model.Job.MinSalary.ToString("N0") - @Model.Job.MaxSalary.ToString("N0")</li>
+												<li><i class="ti-shield"></i><strong
+														class="font-weight-700 text-black">Experience</strong>@Model.Job.Experience
+												</li>
+												<li><i class="ti-time"></i><strong
+														class="font-weight-700 text-black">Job
+														Type</strong>@Model.Job.Type</li>
+												<li><i class="ti-user"></i><strong
+														class="font-weight-700 text-black">Openings</strong>@Model.Job.Opening
+												</li>
+												<li><i class="ti-tag"></i><strong
+														class="font-weight-700 text-black">Tags</strong>
+													<div class="dez-post-tags clear">
+														<div class="post-tags">
+															@foreach (var item in Model.Tags)
+															{
+															<a asp-route-tag="@item" asp-action="Tags">@item </a>
+
+															}
+
+														</div>
+												</li>
+
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-8">
+							<div class="job-info-box">
+								<h3 class="m-t0 m-b10 font-weight-700 title-head">
+									<a href="javascript:void(0);" class="text-secondry m-r30">@Model.Job.Title</a>
+								</h3>
+								<ul class="job-info">
+									<li><strong>Category</strong> @Model.Job.Category</li>
+									<li><strong>Deadline:</strong> @Model.Job.Deadline</li>
+									<li><i class="ti-location-pin text-black m-r5"></i> @Model.Job.City </li>
+									<li><i class="fa fa-eye"></i> @Model.ViewCount </li>
+								</ul>
+							
+								  @if(isApplied)
+								  {
+									  	<div class="alert alert-warning">
+								  <a class="close" data-dismiss="alert">&times</a>
+									  <p style="margin-bottom: 10px;">you have applied to this job on @Model.AppliedDate</p>
+									  	</div>
+								  }
+								  else if(!isExpired)
+								  {
+									  	<div class="alert alert-warning">
+								  <a class="close" data-dismiss="alert">&times</a>
+									  
+								   <p style="margin-bottom: 10px;">@Model.TimeLeftForDeadline</p>
+									  	</div>
+								  }
+
+								
+								
+								<p class="p-t20">@Model.Job.Description</p>
+								@if(isExpired)
+								{
+								<div class="alert alert-danger alert error">
+								  <a class="close" data-dismiss="alert">&times</a>
+								   <p style="margin-bottom: 10px;">This job is expired</p>
+
+								</div>
+								}
+
+								<h5 class="font-weight-600">Responsibilities</h5>
+								<div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
+								<p>@Model.Job.Responsibility</p>
+								<h5 class="font-weight-600">Requirements</h5>
+								<div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
+								<p>@Model.Job.Requirement</p>
+								<h5 class="font-weight-600">Benefits</h5>
+								<div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
+								<ul class="list-num-count no-round">
+									@Model.Job.Benefits
+								</ul>
+								@if(!isExpired)
+								{
+								@if (Model.IsApplied)
+								{
+								<a href="#" class="site-button"> <i class="fa fa-briefcase"> </i> Applied</a>
+
+								}
+								else
+								{
+								
+
+								<a href="#" title="READ MORE" rel="bookmark" data-toggle="modal" data-target="#applyJob"
+									class="site-button"> <i class="fa fa-briefcase"> </i> Apply This Job</a>
+								}
+								}
+								<label class="like-btn">
+									@if(Model.IsSaved)
+									{
+										<input type="checkbox" id="isSaved" name="isSaved"  checked>
+									}
+									else
+									{
+									<input type="checkbox" id="isSaved" name="isSaved")>
+									}
+									<span class="checkmark"></span>
+								</label>
+								<div class="dez-divider bg-gray-dark op4"><i class="icon-dot c-square"></i></div>
+								<div class="share-details-btn">
+								<ul>
+									<li><h5 class="m-a0">Share Post</h5></li>
+									<li><a href="javascript:void(0);" class="site-button facebook button-sm"><i class="fa fa-facebook"></i> Facebook</a></li>
+									<li><a href="javascript:void(0);" class="site-button linkedin button-sm"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+									<li><a href="javascript:void(0);" class="site-button instagram button-sm"><i class="fa fa-instagram"></i> Instagram</a></li>
+									<li><a href="javascript:void(0);" class="site-button twitter button-sm"><i class="fa fa-twitter"></i> Twitter</a></li>
+									<li><a href="javascript:void(0);" class="site-button whatsapp button-sm"><i class="fa fa-whatsapp"></i> Whatsapp</a></li>
+								</ul>
+							</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Job Detail -->
+		<!-- Our Jobs -->
+
+		<!-- Content END-->
+
+
+	</div>
+	</div>
+
+	<!-- Modal Box -->
+	<div class="modal fade modal-bx-info" id="applyJob" tabindex="-1" role="dialog" aria-labelledby="applyJobTitle"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h5 class="modal-title">@Model.Job.Title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					@if(isSigned)
+					{
+					<form asp-action="ApplyJob" asp-controller="Job">
+						<h5 class="m-t0">Do you want to apply for this job?</h5>
+						<input type="hidden" name="jobId" id="jobId" value="@Model.Job.Id">
+
+						<br>
+						<div class="clearfix">
+							<button type="submit" class="btn-primary site-button btn-block">Yes </button>
+						</div>
+					</form>
+					}
+					else
+					{
+						<div class="alert alert-danger alert error">
+								  <a class="close" data-dismiss="alert">&times</a>
+								   <p style="margin-bottom: 10px;"> Click Login button apply?, 😠</p>
+
+								</div>
+						<a href="#" title="READ MORE" rel="bookmark" data-toggle="modal" data-target="#loginmodal" class="site-button"><i class="fa fa-lock"></i> Login 😪 </a>
+
+
+					}
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="noBtn" class="btn btn-secondary" data-dismiss="modal">No 🙄 </button>
+				</div>
+			</div>
+		</div>
+	</div>
+<script src="/assets/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+
+	<!-- Modal Box End -->
+<script src="/js/browsejob.js"></script><!-- JQUERY.MIN JS -->

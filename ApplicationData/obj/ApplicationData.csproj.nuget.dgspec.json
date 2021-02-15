@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\ApplicationData\\ApplicationData.csproj": {}
+    "C:\\Users\\Gaurav\\Desktop\\jobscatalog\\Applicationdata\\ApplicationData.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\ApplicationData\\ApplicationData.csproj": {
+    "C:\\Users\\Gaurav\\Desktop\\jobscatalog\\Applicationdata\\ApplicationData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\ApplicationData\\ApplicationData.csproj",
+        "projectUniqueName": "C:\\Users\\Gaurav\\Desktop\\jobscatalog\\Applicationdata\\ApplicationData.csproj",
         "projectName": "ApplicationData",
-        "projectPath": "C:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\ApplicationData\\ApplicationData.csproj",
+        "projectPath": "C:\\Users\\Gaurav\\Desktop\\jobscatalog\\Applicationdata\\ApplicationData.csproj",
         "packagesPath": "C:\\Users\\Gaurav\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gaurav\\Desktop\\CGitHub\\jobscatalog\\ApplicationData\\obj\\",
+        "outputPath": "C:\\Users\\Gaurav\\Desktop\\jobscatalog\\Applicationdata\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gaurav\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
@@ -82,11 +84,14 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

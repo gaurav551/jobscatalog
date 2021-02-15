@@ -15,6 +15,12 @@ namespace Repository
             this.context = context;
 
         }
+        /// <summary>
+        /// Create Company mam
+        /// </summary>
+        /// <param name="company"></param>
+        /// <param name="file"></param>
+        /// <returns></returns>
 
         public async Task CreateCompanyAsync(JobHub.Models.Company company, IFormFile file)
         {

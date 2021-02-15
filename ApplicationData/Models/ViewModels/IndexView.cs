@@ -12,6 +12,7 @@ namespace JobHub.Models
         public DateTime TimePosted { get; set; }
         public string Category { get; set; }
         public string PostedOn { get; set;}
+        public string CompanyName { get; set; }
         public string Image { get; set; }
         public int MinSalary { get; set; }
         public int MaxSalary { get; set; }

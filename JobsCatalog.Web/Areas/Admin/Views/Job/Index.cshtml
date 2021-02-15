@@ -1,0 +1,83 @@
+@model List<Job>
+<link rel="stylesheet" href="~/adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="~/adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<style>
+    
+	tr td:nth-of-type(1) {
+  display: none;
+	}
+</style>
+
+
+								<table id="adminDataTableView" class="table table-bordered table-hover">
+									<thead>
+										<tr>
+											<th class="hideThis">Id</th>
+											<th>Job Title</th>
+											<th>Applications</th>
+											<th>Date</th>
+											<!-- Disable sorting from dynamically created class from datatable -->
+											<th class="nosort">Details</th>
+											
+												
+										</tr>
+									</thead>
+									
+								</table>
+                                <div class="modal fade" id="modal-info">
+        <div class="modal-dialog">
+          <div class="modal-content bg-info">
+            <div class="modal-header">
+              <h4 class="modal-title">JOB INFO</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+								
+								<!-- Modal -->
+    <script src="~/adminlte/jquery/jquery.min.js"></script>
+								
+@section Scripts
+{
+
+
+   <script src="~/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+ <script src="~/js/adminDataTableView.js"></script>
+}
+	<!-- Content END-->
+	<!-- Modal Box -->
+	<!-- Modal Box End -->
+	<!-- Footer -->
+	
+   @* Get Job Details *@
+	<script>
+		$("#adminDataTableView").on('click', '#editBtn2', function(e){
+        e.preventDefault();
+        var ID = $(this).closest('tr').find('td').eq(0).text();
+         $.get("@Url.Action("JobDetails","Job")/" + ID,
+				function (data) {
+					$('.modal-body').html(data);
+				});
+
+			$("#modal-info").modal("show");
+    });
+	</script>
+	@* hide Id Head From Table so Id is not shown in table but it still is hidden *@
+	<script>
+        $('.hideThis').hide();
+	</script>
+ 
+
